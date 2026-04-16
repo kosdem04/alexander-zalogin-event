@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div>
-          <strong>Александр - ведущий мероприятий</strong>
+          <strong>Александр - ведущий мероприятий7</strong>
           <p>Свадьбы, корпоративы, юбилеи, выпускные, статусные вечера и масштабные события.</p>
         </div>
         <div className={styles.contacts}>
