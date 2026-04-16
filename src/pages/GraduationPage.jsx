@@ -1,4 +1,4 @@
-import CTASection from "../components/CTASection";
+﻿import CTASection from "../components/CTASection";
 import PageShell from "../components/PageShell";
 import SectionTitle from "../components/SectionTitle";
 import styles from "./GraduationPage.module.css";
@@ -13,9 +13,8 @@ export default function GraduationPage() {
               <span className={styles.badge}>Выпускные</span>
               <h1>Молодой ритм, современная подача и контроль зала без хаоса</h1>
               <p>
-                Страница выпускных визуально заметно динамичнее: яркие градиенты,
-                резкие акценты, крупные блоки и подача, которая говорит с
-                молодежной аудиторией на одном языке.
+                Выпускной в динамичном ритме: яркая подача, живые интерактивы и атмосфера, в которой комфортно выпускникам,
+                родителям и педагогам.
               </p>
             </div>
             <div className={styles.right}>
@@ -34,7 +33,7 @@ export default function GraduationPage() {
           <SectionTitle
             eyebrow="Программа"
             title="Что особенно важно на выпускных"
-            text="Нужно удержать внимание выпускников, не потерять родителей и педагогов, при этом сохранить современный темп и хороший визуальный вайб."
+            text="Удержать внимание выпускников, не потерять родителей и педагогов, сохраняя современный темп и живой вайб."
           />
           <div className={styles.programGrid}>
             <div className={styles.programCard}>Сильный старт и быстрый сбор внимания</div>
@@ -48,7 +47,7 @@ export default function GraduationPage() {
       <CTASection
         eyebrow="Молодежная аудитория"
         title="Если нужен выпускной, который ощущается свежо, а не как старая актовая программа"
-        text="Страница уже готова под отдельный трафик на школы, выпускные классы, колледжи и вузы."
+        text="Оставьте заявку, и я предложу программу выпускного для школы, колледжа или вуза под ваш формат и бюджет."
         primaryTo="/contacts"
         primaryLabel="Обсудить выпускной"
         secondaryTo="/mass-events"

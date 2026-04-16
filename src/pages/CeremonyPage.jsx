@@ -1,4 +1,4 @@
-import CTASection from "../components/CTASection";
+﻿import CTASection from "../components/CTASection";
 import PageShell from "../components/PageShell";
 import SectionTitle from "../components/SectionTitle";
 import styles from "./CeremonyPage.module.css";
@@ -10,11 +10,9 @@ export default function CeremonyPage() {
         <div className={styles.container}>
           <div className={styles.card}>
             <span className={styles.badge}>Выездная церемония</span>
-            <h1>Легкость, воздух, интонация и текст, написанный не «по открытке»</h1>
+            <h1>Легкость, воздух, интонация и текст, написанный лично для вас</h1>
             <p>
-              Эта страница должна ощущаться отдельно даже от свадебного раздела:
-              меньше банкетной динамики, больше смысла, воздуха, эмоции и
-              персонализации речи.
+              Здесь важны смысл, эмоции и персональные слова: церемония собирается вокруг вашей истории, а не вокруг шаблонов.
             </p>
             <div className={styles.lines}>
               <div>Персональный текст</div>
@@ -30,7 +28,7 @@ export default function CeremonyPage() {
           <SectionTitle
             eyebrow="Смысл церемонии"
             title="Здесь продается не микрофон, а чувство момента"
-            text="На этой странице лучше говорить о тексте, интонации, подготовке, выборе слов и о том, как церемония становится личной историей пары."
+            text="Работаем с текстом, интонацией, паузами и атмосферой, чтобы церемония стала личной историей пары."
           />
           <div className={styles.blockGrid}>
             <div className={styles.block}>Создание персонального текста и структуры</div>
@@ -42,8 +40,8 @@ export default function CeremonyPage() {
 
       <CTASection
         eyebrow="Для церемонии"
-        title="Если вам важна церемония, которую гости будут вспоминать как настоящий момент, а не как формальность"
-        text="Страница уже готова под отдельный трафик на выездные церемонии и может усиливаться текстами, видео и фото пар."
+        title="Если вам важна церемония, которую гости запомнят как настоящий момент"
+        text="Оставьте заявку, и я подготовлю церемонию под вашу пару, формат и настроение дня."
         primaryTo="/contacts"
         primaryLabel="Обсудить церемонию"
         secondaryTo="/weddings"

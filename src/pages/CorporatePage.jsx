@@ -1,4 +1,4 @@
-import CTASection from "../components/CTASection";
+﻿import CTASection from "../components/CTASection";
 import { mediaLinks } from "../data/mediaLinks";
 import PageShell from "../components/PageShell";
 import SectionTitle from "../components/SectionTitle";
@@ -19,7 +19,7 @@ export default function CorporatePage() {
         <div className={styles.container}>
           <div className={styles.heroGrid}>
             <div className={styles.poster}>
-              <div className={styles.posterTag}>Корпоративы / эталон стиля</div>
+              <div className={styles.posterTag}>Корпоративы</div>
               <h1>
                 ВЕДУЩИЙ
                 <br />
@@ -30,9 +30,7 @@ export default function CorporatePage() {
                 КОМАНДЫ
               </h1>
               <p>
-                Самая сильная страница в проекте. Темный фон, синий свет,
-                крупная типографика, наложения, жесткий ритм блоков и ощущение
-                контроля над залом.
+                Уверенная подача для компаний: статусный тон, четкий ритм и контроль энергии зала на всех этапах программы.
               </p>
             </div>
 
@@ -49,10 +47,7 @@ export default function CorporatePage() {
                   preload="metadata"
                 />
               </div>
-              <div className={styles.floatingNote}>
-                Для компаний, которым нужен не просто ведущий, а сильное лицо
-                программы.
-              </div>
+              <div className={styles.floatingNote}>Для компаний, которым важны статус, темп и сильная работа с аудиторией.</div>
             </div>
           </div>
         </div>
@@ -63,7 +58,7 @@ export default function CorporatePage() {
           <SectionTitle
             eyebrow="Что вы получаете"
             title="Программа, которая держит ритм и не теряет бренд"
-            text="Корпоративная страница должна продавать через визуал контроль, уверенность и сценическую силу, а не только через перечисление услуг."
+            text="Вы получаете структуру вечера, где контроль, уверенность и сценическая сила работают на задачи компании."
           />
           <div className={styles.getGrid}>
             {benefits.map((item, index) => (
@@ -85,14 +80,10 @@ export default function CorporatePage() {
             </div>
             <div className={styles.experienceText}>
               <p>
-                Корпоративный формат требует точности: награждения, брендовые
-                блоки, выходы руководителей, гости, партнеры, кейсы и динамика
-                вечера должны собираться в одну логику.
+                Корпоративный формат требует точности: награждения, брендовые блоки, выходы руководителей, партнеры и гости
+                должны собираться в одну логику.
               </p>
-              <p>
-                Здесь ведущий не живет отдельно от события. Он встраивается в
-                бизнес-контекст и усиливает восприятие компании.
-              </p>
+              <p>Ведущий встраивается в бизнес-контекст и усиливает впечатление о компании на площадке.</p>
             </div>
           </div>
         </div>
@@ -115,10 +106,7 @@ export default function CorporatePage() {
             </div>
             <div className={styles.caseSidebar}>
               <h3>Кейсы и ролики</h3>
-              <p>
-                Здесь легко разместить корпоративные шоу-рилы, видео с награждений,
-                клиентских вечеров и больших внутренних событий компаний.
-              </p>
+              <p>Показываю примеры корпоративных шоу, награждений, клиентских вечеров и больших внутренних событий.</p>
             </div>
           </div>
           <div className={styles.logoStrip}>
@@ -134,7 +122,7 @@ export default function CorporatePage() {
       <CTASection
         eyebrow="Для бизнеса"
         title="Если вам нужен ведущий, который выглядит сильно еще до первого слова"
-        text="Эта страница может быть главной точкой входа для корпоративного трафика и служить визуальным эталоном для остальных направлений."
+        text="Оставьте заявку, и я предложу формат корпоративного вечера под ваши цели, аудиторию и площадку."
         primaryTo="/contacts"
         primaryLabel="Запросить дату"
         secondaryTo="/gala-dinners"

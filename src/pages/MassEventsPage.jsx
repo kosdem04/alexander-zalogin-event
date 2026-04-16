@@ -1,4 +1,4 @@
-import CTASection from "../components/CTASection";
+﻿import CTASection from "../components/CTASection";
 import PageShell from "../components/PageShell";
 import SectionTitle from "../components/SectionTitle";
 import styles from "./MassEventsPage.module.css";
@@ -13,9 +13,7 @@ export default function MassEventsPage() {
             <div className={styles.heroText}>
               <h1>Сцена, масштаб и управление вниманием большой аудитории</h1>
               <p>
-                Эта страница должна быть самой энергичной и масштабной в проекте:
-                крупные формы, контраст, ощущение площади, сцены и большой
-                публики.
+                Масштабные события требуют мощной энергии, четкого ритма и уверенного управления вниманием большой аудитории.
               </p>
             </div>
             <div className={styles.heroPanel}>
@@ -33,8 +31,8 @@ export default function MassEventsPage() {
         <div className={styles.container}>
           <SectionTitle
             eyebrow="Механика"
-            title="На больших площадках работает не тот, кто громче всех, а тот, кто держит общий ритм"
-            text="Здесь важны сценическая энергия, работа с паузами, управление вниманием и понимание, как держать тысячи взглядов в одной логике события."
+            title="На больших площадках работает тот, кто держит общий ритм"
+            text="Здесь важны сценическая энергия, работа с паузами и управление вниманием тысяч людей в одной логике события."
           />
           <div className={styles.mechanicGrid}>
             <div className={styles.mechanicCard}>Сильное открытие и быстрый сбор внимания</div>
@@ -48,7 +46,7 @@ export default function MassEventsPage() {
       <CTASection
         eyebrow="Большой формат"
         title="Если вам нужен ведущий для сцены, городского праздника или масштабного события"
-        text="Страница уже оформлена под энергичный трафик и может усиливаться кейсами, видео со сцены и брендингом партнеров."
+        text="Оставьте заявку, и я предложу формат проведения под вашу площадку, аудиторию и задачи события."
         primaryTo="/contacts"
         primaryLabel="Отправить запрос"
         secondaryTo="/corporate"
