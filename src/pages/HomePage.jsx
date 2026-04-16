@@ -197,22 +197,21 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className={`${styles.promoSection} ${styles.reveal}`} data-reveal>
+        <div className={styles.container}>
+          <div className={styles.promoWrap}>
+            <video className={styles.promoVideo} src={mediaLinks.promoVideoUrl} controls preload="metadata" />
+          </div>
+        </div>
+      </section>
+
       <section className={`${styles.previewRailSection} ${styles.reveal}`} data-reveal>
         <div className={styles.container}>
           <div className={styles.previewRail}>
-            {previews.map((item, index) => (
+            {previews.map((item) => (
               <article key={item.title} className={styles.previewCard}>
                 <div className={styles.previewVisual}>
-                  <video
-                    className={styles.sampleVideo}
-                    src={mediaLinks.sampleVideoUrl}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                  />
-                  <span className={styles.videoLabel}>Preview 0{index + 1}</span>
+                  <video className={styles.sampleVideo} src={mediaLinks.reelsVideoUrl} controls preload="metadata" />
                 </div>
                 <span>{item.label}</span>
                 <h3>{item.title}</h3>
@@ -266,20 +265,9 @@ export default function HomePage() {
             text="Напишите слово «ПОРТФОЛИО», и я отправлю видео-примеры."
           />
           <div className={styles.caseGrid}>
-            {cases.map((item, index) => (
+            {cases.map((item) => (
               <article key={item.title} className={styles.caseCard}>
-                <div className={styles.caseVisual}>
-                  <video
-                    className={styles.sampleVideo}
-                    src={mediaLinks.sampleVideoUrl}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                  />
-                  <span className={styles.videoLabel}>Case 0{index + 1}</span>
-                </div>
+                <div className={styles.caseVisual} />
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
               </article>

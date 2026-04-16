@@ -93,18 +93,21 @@
 .heroVisual {
   position: relative;
   overflow: hidden;
-  min-height: 760px;
+  min-height: 0;
+  display: grid;
+  gap: 16px;
+  padding: 22px;
 }
 
 .visualImage {
-  position: absolute;
-  inset: 22px 22px 80px 72px;
+  position: relative;
+  inset: auto;
   overflow: hidden;
-  background:
-    linear-gradient(180deg, rgba(5, 7, 11, 0.12), rgba(5, 7, 11, 0.64)),
-    url("https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=1400&q=80")
-      center/cover;
-  clip-path: polygon(12% 0, 100% 0, 100% 88%, 84% 100%, 0 100%, 0 16%);
+  width: min(100%, 360px);
+  aspect-ratio: 9 / 16;
+  margin: 0 auto;
+  border-radius: 24px;
+  background: #000;
 }
 
 .sampleVideo {
@@ -117,11 +120,7 @@
 }
 
 .visualImage::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(5, 7, 11, 0.22), rgba(5, 7, 11, 0.64));
-  z-index: 1;
+  display: none;
 }
 
 .overlayText {
@@ -149,10 +148,9 @@
 }
 
 .floatingNote {
-  position: absolute;
-  right: 22px;
-  bottom: 22px;
-  width: 260px;
+  position: static;
+  width: min(100%, 360px);
+  margin: 0 auto;
   padding: 20px;
   border-radius: 22px;
   background: rgba(10, 37, 64, 0.84);
@@ -217,7 +215,10 @@
 .caseVideo {
   position: relative;
   overflow: hidden;
-  min-height: 420px;
+  min-height: 0;
+  width: min(100%, 360px);
+  aspect-ratio: 9 / 16;
+  margin: 0 auto;
   display: grid;
   place-items: center;
   border-radius: 34px;
@@ -231,13 +232,7 @@
 }
 
 .caseVideo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at center, rgba(44, 140, 255, 0.18), transparent 28%),
-    linear-gradient(180deg, rgba(6, 12, 20, 0.26), rgba(6, 12, 20, 0.58));
-  z-index: 1;
+  display: none;
 }
 
 .caseVideoLabel {
@@ -285,16 +280,10 @@
     grid-template-columns: 1fr;
   }
 
-  .heroVisual {
-    min-height: 520px;
-  }
-
-  .visualImage {
-    inset: 22px;
-  }
-
-  .overlayText {
-    left: 22px;
+  .visualImage,
+  .floatingNote,
+  .caseVideo {
+    width: min(100%, 340px);
   }
 }
 
@@ -340,10 +329,7 @@
   }
 
   .visualImage {
-    position: static;
-    inset: auto;
-    min-height: 300px;
-    clip-path: none;
+    width: min(100%, 280px);
     border-radius: 18px;
   }
 
@@ -385,7 +371,8 @@
   }
 
   .caseVideo {
-    min-height: 250px;
+    min-height: 0;
+    width: min(100%, 280px);
     border-radius: 22px;
     font-size: 34px;
   }

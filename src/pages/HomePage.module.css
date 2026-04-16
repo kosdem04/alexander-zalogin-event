@@ -10,6 +10,7 @@
 }
 
 .hero,
+.promoSection,
 .previewRailSection,
 .about,
 .benefits,
@@ -200,6 +201,20 @@
   margin-top: -28px;
 }
 
+.promoWrap {
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: var(--shadow);
+}
+
+.promoVideo {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+}
+
 .previewRail {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -238,7 +253,9 @@
 .previewVisual {
   position: relative;
   overflow: hidden;
-  min-height: 220px;
+  aspect-ratio: 9 / 16;
+  max-width: 320px;
+  margin: 0 auto;
   display: grid;
   place-items: center;
   border-radius: 20px;
@@ -385,18 +402,6 @@
   object-fit: cover;
 }
 
-.videoLabel {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: rgba(7, 17, 31, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
 
 .formatGrid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -517,6 +522,7 @@
 
 @media (max-width: 720px) {
   .hero,
+  .promoSection,
   .previewRailSection,
   .about,
   .benefits,
@@ -584,7 +590,7 @@
   }
 
   .previewVisual {
-    min-height: 180px;
+    max-width: 260px;
     font-size: 17px;
   }
 

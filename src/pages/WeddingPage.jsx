@@ -66,14 +66,10 @@ export default function WeddingPage() {
               <div className={styles.galleryTop}>
                 <video
                   className={styles.sampleVideo}
-                  src={mediaLinks.sampleVideoUrl}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
+                  src={mediaLinks.reelsVideoUrl}
+                  controls
                   preload="metadata"
                 />
-                <span className={styles.videoCaption}>Видео-рилс свадеб</span>
               </div>
               <div className={styles.galleryBottom}>Фотоблок пары и гостей</div>
             </div>

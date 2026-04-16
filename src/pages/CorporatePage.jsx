@@ -40,17 +40,10 @@ export default function CorporatePage() {
               <div className={styles.visualImage}>
                 <video
                   className={styles.sampleVideo}
-                  src={mediaLinks.sampleVideoUrl}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
+                  src={mediaLinks.reelsVideoUrl}
+                  controls
                   preload="metadata"
                 />
-                <div className={styles.overlayText}>
-                  <span>Corporate show</span>
-                  <strong>ENERGY / CONTROL / STAGE</strong>
-                </div>
               </div>
               <div className={styles.floatingNote}>
                 Для компаний, которым нужен не просто ведущий, а сильное лицо
@@ -107,14 +100,10 @@ export default function CorporatePage() {
             <div className={styles.caseVideo}>
               <video
                 className={styles.sampleVideo}
-                src={mediaLinks.sampleVideoUrl}
-                autoPlay
-                muted
-                loop
-                playsInline
+                src={mediaLinks.reelsVideoUrl}
+                controls
                 preload="metadata"
               />
-              <span className={styles.caseVideoLabel}>Cases / Video</span>
             </div>
             <div className={styles.caseSidebar}>
               <h3>Кейсы и ролики</h3>
