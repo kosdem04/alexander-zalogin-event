@@ -41,6 +41,10 @@ export default function CorporatePage() {
                 <video
                   className={styles.sampleVideo}
                   src={mediaLinks.reelsVideoUrl}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
                   controls
                   preload="metadata"
                 />
@@ -101,6 +105,10 @@ export default function CorporatePage() {
               <video
                 className={styles.sampleVideo}
                 src={mediaLinks.reelsVideoUrl}
+                autoPlay
+                muted
+                loop
+                playsInline
                 controls
                 preload="metadata"
               />

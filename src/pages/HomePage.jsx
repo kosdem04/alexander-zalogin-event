@@ -200,7 +200,16 @@ export default function HomePage() {
       <section className={`${styles.promoSection} ${styles.reveal}`} data-reveal>
         <div className={styles.container}>
           <div className={styles.promoWrap}>
-            <video className={styles.promoVideo} src={mediaLinks.promoVideoUrl} controls preload="metadata" />
+            <video
+              className={styles.promoVideo}
+              src={mediaLinks.promoVideoUrl}
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+              preload="metadata"
+            />
           </div>
         </div>
       </section>
@@ -211,7 +220,16 @@ export default function HomePage() {
             {previews.map((item) => (
               <article key={item.title} className={styles.previewCard}>
                 <div className={styles.previewVisual}>
-                  <video className={styles.sampleVideo} src={mediaLinks.reelsVideoUrl} controls preload="metadata" />
+                  <video
+                    className={styles.sampleVideo}
+                    src={mediaLinks.reelsVideoUrl}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    controls
+                    preload="metadata"
+                  />
                 </div>
                 <span>{item.label}</span>
                 <h3>{item.title}</h3>

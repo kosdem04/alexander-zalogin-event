@@ -23,6 +23,10 @@ export default function GalaPage() {
               <video
                 className={styles.sampleVideo}
                 src={mediaLinks.reelsVideoUrl}
+                autoPlay
+                muted
+                loop
+                playsInline
                 controls
                 preload="metadata"
               />
