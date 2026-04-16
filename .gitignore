@@ -2,3 +2,4 @@ node_modules
 dist
 *.txt
 .DS_Store
+docker-compose.dev.yml
