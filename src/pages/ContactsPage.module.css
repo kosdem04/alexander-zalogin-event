@@ -1,0 +1,145 @@
+.page {
+  background:
+    radial-gradient(circle at top right, rgba(44, 140, 255, 0.14), transparent 24%),
+    linear-gradient(180deg, #090b0f 0%, #111722 100%);
+}
+
+.container {
+  width: min(var(--container), calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.hero,
+.bonusSection {
+  padding: 0 0 88px;
+}
+
+.hero {
+  padding-top: 56px;
+}
+
+.grid,
+.bonusList {
+  display: grid;
+  gap: 18px;
+}
+
+.grid {
+  grid-template-columns: 0.92fr 1.08fr;
+  align-items: start;
+}
+
+.info,
+.bonusCard,
+.bonusList div {
+  padding: 28px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow);
+}
+
+.badge {
+  display: inline-flex;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(44, 140, 255, 0.1);
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.info h1 {
+  margin: 18px 0 16px;
+  font-size: clamp(40px, 5.8vw, 76px);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+
+.info p,
+.contacts a {
+  color: var(--muted);
+}
+
+.contacts {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.contacts a:hover {
+  color: var(--accent-glow);
+}
+
+.bonusCard h2 {
+  margin: 0 0 18px;
+  font-size: 42px;
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+
+.bonusList {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.bonusList div {
+  min-height: 140px;
+  display: flex;
+  align-items: end;
+  font-size: 22px;
+  line-height: 1.08;
+}
+
+@media (max-width: 1100px) {
+  .grid,
+  .bonusList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero,
+  .bonusSection {
+    padding: 0 0 76px;
+  }
+
+  .hero {
+    padding-top: 34px;
+  }
+
+  .info,
+  .bonusCard,
+  .bonusList div {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .info h1 {
+    font-size: 34px;
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+  }
+
+  .info p,
+  .contacts a {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .bonusCard h2 {
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .bonusList div {
+    min-height: 0;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .bonusList {
+    grid-template-columns: 1fr;
+  }
+}

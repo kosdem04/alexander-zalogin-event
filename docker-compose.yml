@@ -1,0 +1,9 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: alexhost-site
+    ports:
+      - "8081:80"
+    restart: unless-stopped

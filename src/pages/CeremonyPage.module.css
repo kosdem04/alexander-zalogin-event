@@ -1,0 +1,135 @@
+.page {
+  background:
+    radial-gradient(circle at top left, rgba(44, 140, 255, 0.14), transparent 24%),
+    linear-gradient(180deg, #0b0b0b 0%, #101721 100%);
+}
+
+.container {
+  width: min(var(--container), calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.hero,
+.blocks {
+  padding: 0 0 88px;
+}
+
+.hero {
+  padding-top: 56px;
+}
+
+.card,
+.block,
+.lines div {
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow);
+}
+
+.card {
+  padding: 34px;
+  background:
+    linear-gradient(180deg, rgba(28, 93, 153, 0.1), rgba(255, 255, 255, 0.04)),
+    rgba(255, 255, 255, 0.04);
+}
+
+.badge {
+  display: inline-flex;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(44, 140, 255, 0.12);
+  color: #dcecff;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.card h1 {
+  margin: 18px 0 16px;
+  max-width: 980px;
+  font-size: clamp(42px, 6vw, 86px);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+
+.card p {
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.lines,
+.blockGrid {
+  display: grid;
+  gap: 16px;
+}
+
+.lines {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 28px;
+}
+
+.lines div,
+.block {
+  padding: 22px;
+  border-radius: 24px;
+}
+
+.blockGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.block {
+  color: #dcecff;
+  font-size: 24px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+  .lines,
+  .blockGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero,
+  .blocks {
+    padding: 0 0 76px;
+  }
+
+  .hero {
+    padding-top: 34px;
+  }
+
+  .card,
+  .lines div,
+  .block {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .card h1 {
+    font-size: 34px;
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+  }
+
+  .card p {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .block {
+    font-size: 18px;
+    line-height: 1.25;
+  }
+
+  .lines,
+  .blockGrid {
+    grid-template-columns: 1fr;
+  }
+}

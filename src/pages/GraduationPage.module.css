@@ -1,0 +1,159 @@
+.page {
+  background:
+    radial-gradient(circle at top left, rgba(44, 140, 255, 0.28), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(84, 175, 255, 0.12), transparent 28%),
+    linear-gradient(180deg, #06080d 0%, #0d1220 100%);
+}
+
+.container {
+  width: min(var(--container), calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.hero,
+.program {
+  padding: 0 0 88px;
+}
+
+.hero {
+  padding-top: 56px;
+}
+
+.heroGrid,
+.programGrid {
+  display: grid;
+  gap: 18px;
+}
+
+.heroGrid {
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.badge {
+  display: inline-flex;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(44, 140, 255, 0.18);
+  color: #dcecff;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.left h1 {
+  margin: 18px 0 16px;
+  font-size: clamp(44px, 7vw, 92px);
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+  text-transform: uppercase;
+}
+
+.left p,
+.programCard {
+  color: #d7e7f9;
+  font-size: 18px;
+}
+
+.right {
+  display: grid;
+  gap: 18px;
+}
+
+.scoreCard,
+.wave,
+.programCard {
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow);
+}
+
+.scoreCard {
+  padding: 26px;
+}
+
+.scoreCard strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 34px;
+  text-transform: uppercase;
+}
+
+.wave {
+  min-height: 420px;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(44, 140, 255, 0.5), transparent 16%),
+    radial-gradient(circle at 70% 38%, rgba(255, 255, 255, 0.14), transparent 18%),
+    linear-gradient(135deg, rgba(10, 37, 64, 0.9), rgba(12, 12, 36, 0.86));
+}
+
+.programGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.programCard {
+  min-height: 210px;
+  padding: 28px;
+  font-weight: 800;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+  .heroGrid,
+  .programGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .wave {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero,
+  .program {
+    padding: 0 0 76px;
+  }
+
+  .hero {
+    padding-top: 34px;
+  }
+
+  .left h1 {
+    font-size: 36px;
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+  }
+
+  .left p,
+  .programCard {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .scoreCard,
+  .programCard {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .scoreCard strong {
+    font-size: 26px;
+  }
+
+  .wave {
+    min-height: 180px;
+    border-radius: 22px;
+  }
+
+  .programCard {
+    min-height: 0;
+    line-height: 1.25;
+  }
+
+  .programGrid {
+    grid-template-columns: 1fr;
+  }
+}

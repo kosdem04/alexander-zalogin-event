@@ -1,0 +1,407 @@
+.page {
+  background:
+    radial-gradient(circle at top right, rgba(44, 140, 255, 0.18), transparent 24%),
+    linear-gradient(180deg, #05070b 0%, #09111b 46%, #06080d 100%);
+}
+
+.container {
+  width: min(var(--container), calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.hero,
+.gets,
+.experience,
+.cases {
+  padding: 0 0 96px;
+}
+
+.hero {
+  padding-top: 56px;
+}
+
+.heroGrid,
+.getGrid,
+.experienceGrid,
+.caseLayout,
+.logoStrip {
+  display: grid;
+  gap: 18px;
+}
+
+.heroGrid {
+  grid-template-columns: 0.92fr 1.08fr;
+  align-items: stretch;
+}
+
+.poster,
+.heroVisual,
+.getCard,
+.experienceStatement,
+.experienceText,
+.caseSidebar,
+.logoItem {
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow);
+}
+
+.poster {
+  position: relative;
+  padding: 28px;
+  overflow: hidden;
+}
+
+.poster::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  right: -32px;
+  width: 180px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-glow), transparent);
+  transform: rotate(-18deg);
+}
+
+.posterTag,
+.kicker {
+  display: inline-flex;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(44, 140, 255, 0.12);
+  color: #c8e3ff;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.poster h1 {
+  margin: 18px 0 20px;
+  font-size: clamp(56px, 8vw, 132px);
+  line-height: 0.84;
+  letter-spacing: -0.08em;
+}
+
+.poster p,
+.experienceText p,
+.caseSidebar p {
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.heroVisual {
+  position: relative;
+  overflow: hidden;
+  min-height: 760px;
+}
+
+.visualImage {
+  position: absolute;
+  inset: 22px 22px 80px 72px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(5, 7, 11, 0.12), rgba(5, 7, 11, 0.64)),
+    url("https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=1400&q=80")
+      center/cover;
+  clip-path: polygon(12% 0, 100% 0, 100% 88%, 84% 100%, 0 100%, 0 16%);
+}
+
+.sampleVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.visualImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 7, 11, 0.22), rgba(5, 7, 11, 0.64));
+  z-index: 1;
+}
+
+.overlayText {
+  position: absolute;
+  left: -50px;
+  bottom: 40px;
+  max-width: 320px;
+  z-index: 2;
+}
+
+.overlayText span {
+  display: block;
+  margin-bottom: 8px;
+  color: #c8e3ff;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.overlayText strong {
+  display: block;
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.floatingNote {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  width: 260px;
+  padding: 20px;
+  border-radius: 22px;
+  background: rgba(10, 37, 64, 0.84);
+  border: 1px solid rgba(44, 140, 255, 0.24);
+  color: #dcecff;
+  z-index: 3;
+}
+
+.getGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.getCard {
+  position: relative;
+  min-height: 240px;
+  padding: 24px;
+}
+
+.getCard span {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  color: rgba(44, 140, 255, 0.58);
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.getCard p {
+  position: relative;
+  z-index: 1;
+  margin: 100px 0 0;
+  max-width: 320px;
+  font-size: 28px;
+  line-height: 1.04;
+}
+
+.experienceGrid {
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: stretch;
+}
+
+.experienceStatement,
+.experienceText {
+  padding: 28px;
+}
+
+.experienceStatement h2 {
+  margin: 18px 0 0;
+  font-size: clamp(36px, 5vw, 72px);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.caseLayout {
+  grid-template-columns: 1.18fr 0.82fr;
+  align-items: stretch;
+  margin-bottom: 18px;
+}
+
+.caseVideo {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at center, rgba(44, 140, 255, 0.28), transparent 26%),
+    linear-gradient(135deg, rgba(10, 37, 64, 0.92), rgba(4, 9, 16, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: clamp(42px, 5vw, 84px);
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+}
+
+.caseVideo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(44, 140, 255, 0.18), transparent 28%),
+    linear-gradient(180deg, rgba(6, 12, 20, 0.26), rgba(6, 12, 20, 0.58));
+  z-index: 1;
+}
+
+.caseVideoLabel {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(220, 236, 255, 0.28);
+  background: rgba(6, 12, 20, 0.56);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+}
+
+.caseSidebar {
+  padding: 28px;
+}
+
+.caseSidebar h3 {
+  margin: 0 0 12px;
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
+.logoStrip {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.logoItem {
+  min-height: 92px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  font-weight: 800;
+  color: #dcecff;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 1100px) {
+  .heroGrid,
+  .getGrid,
+  .experienceGrid,
+  .caseLayout,
+  .logoStrip {
+    grid-template-columns: 1fr;
+  }
+
+  .heroVisual {
+    min-height: 520px;
+  }
+
+  .visualImage {
+    inset: 22px;
+  }
+
+  .overlayText {
+    left: 22px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero,
+  .gets,
+  .experience,
+  .cases {
+    padding: 0 0 76px;
+  }
+
+  .hero {
+    padding-top: 34px;
+  }
+
+  .poster,
+  .experienceStatement,
+  .experienceText,
+  .caseSidebar {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .poster h1 {
+    font-size: 38px;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+
+  .poster p,
+  .experienceText p,
+  .caseSidebar p {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .heroVisual {
+    min-height: 0;
+    padding: 16px;
+    border-radius: 24px;
+    display: grid;
+    gap: 12px;
+  }
+
+  .visualImage {
+    position: static;
+    inset: auto;
+    min-height: 300px;
+    clip-path: none;
+    border-radius: 18px;
+  }
+
+  .overlayText,
+  .floatingNote {
+    position: static;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: auto;
+    max-width: none;
+  }
+
+  .overlayText strong {
+    font-size: 28px;
+  }
+
+  .floatingNote {
+    padding: 14px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .getCard {
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .getCard p {
+    margin-top: 62px;
+    font-size: 20px;
+    line-height: 1.12;
+  }
+
+  .experienceStatement h2 {
+    font-size: 34px;
+    line-height: 0.98;
+  }
+
+  .caseVideo {
+    min-height: 250px;
+    border-radius: 22px;
+    font-size: 34px;
+  }
+
+  .caseSidebar h3 {
+    font-size: 24px;
+  }
+
+  .logoItem {
+    min-height: 72px;
+    font-size: 18px;
+  }
+
+  .getGrid,
+  .caseLayout,
+  .logoStrip {
+    grid-template-columns: 1fr;
+  }
+}

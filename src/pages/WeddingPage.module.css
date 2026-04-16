@@ -1,0 +1,272 @@
+.page {
+  background:
+    radial-gradient(circle at top, rgba(44, 140, 255, 0.14), transparent 28%),
+    linear-gradient(180deg, #0b0b0b 0%, #101822 100%);
+}
+
+.container {
+  width: min(var(--container), calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.hero,
+.moments,
+.split,
+.formWrap {
+  padding: 0 0 88px;
+}
+
+.hero {
+  padding-top: 56px;
+}
+
+.heroPanel {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 22px;
+  align-items: center;
+}
+
+.copy,
+.momentCard,
+.noteCard,
+.galleryCard,
+.sideFacts {
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow);
+}
+
+.copy {
+  padding: 34px;
+}
+
+.badge {
+  display: inline-flex;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(44, 140, 255, 0.1);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #d4e8ff;
+}
+
+.copy h1 {
+  margin: 18px 0 16px;
+  font-size: clamp(42px, 6vw, 84px);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+
+.copy p,
+.noteCard p,
+.sideFacts li {
+  color: var(--muted);
+}
+
+.frame {
+  padding: 22px;
+  border-radius: 36px;
+  background: linear-gradient(135deg, rgba(10, 37, 64, 0.42), rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.framePhoto {
+  min-height: 620px;
+  clip-path: polygon(12% 0, 100% 0, 100% 88%, 84% 100%, 0 100%, 0 18%);
+  background:
+    linear-gradient(180deg, rgba(5, 7, 11, 0.16), rgba(5, 7, 11, 0.48)),
+    url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1400&q=80")
+      center/cover;
+}
+
+.momentGrid,
+.splitGrid,
+.formGrid {
+  display: grid;
+  gap: 18px;
+}
+
+.momentGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.momentCard {
+  min-height: 200px;
+  padding: 24px;
+  font-size: 24px;
+  line-height: 1.12;
+}
+
+.splitGrid,
+.formGrid {
+  grid-template-columns: 1fr 1fr;
+}
+
+.noteCard,
+.sideFacts {
+  padding: 24px;
+}
+
+.noteCard h3,
+.sideFacts h3 {
+  margin: 0 0 12px;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.galleryCard {
+  min-height: 360px;
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+}
+
+.galleryTop,
+.galleryBottom {
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  font-size: 28px;
+  font-weight: 800;
+  color: #f4f7fb;
+  text-transform: uppercase;
+}
+
+.galleryTop {
+  min-height: 180px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(44, 140, 255, 0.32), rgba(255, 255, 255, 0.08));
+}
+
+.galleryBottom {
+  min-height: 120px;
+  background: linear-gradient(135deg, rgba(10, 37, 64, 0.6), rgba(255, 255, 255, 0.04));
+}
+
+.sampleVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.videoCaption {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(8, 14, 24, 0.54);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+}
+
+.sideFacts ul {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 12px;
+}
+
+@media (max-width: 1100px) {
+  .heroPanel,
+  .momentGrid,
+  .splitGrid,
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .framePhoto {
+    min-height: 460px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero,
+  .moments,
+  .split,
+  .formWrap {
+    padding: 0 0 76px;
+  }
+
+  .hero {
+    padding-top: 34px;
+  }
+
+  .copy,
+  .noteCard,
+  .sideFacts,
+  .momentCard {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .copy h1 {
+    font-size: 36px;
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+  }
+
+  .copy p,
+  .noteCard p,
+  .sideFacts li {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .frame {
+    padding: 14px;
+    border-radius: 22px;
+  }
+
+  .framePhoto {
+    min-height: 330px;
+    clip-path: none;
+    border-radius: 16px;
+  }
+
+  .momentCard {
+    min-height: 0;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .noteCard h3,
+  .sideFacts h3 {
+    font-size: 24px;
+  }
+
+  .galleryCard {
+    min-height: 0;
+    padding: 14px;
+    border-radius: 20px;
+  }
+
+  .galleryTop,
+  .galleryBottom {
+    font-size: 20px;
+  }
+
+  .galleryTop {
+    min-height: 140px;
+  }
+
+  .galleryBottom {
+    min-height: 94px;
+    padding: 16px;
+  }
+
+  .momentGrid,
+  .splitGrid,
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
