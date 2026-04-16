@@ -79,8 +79,7 @@
   clip-path: polygon(12% 0, 100% 0, 100% 88%, 84% 100%, 0 100%, 0 18%);
   background:
     linear-gradient(180deg, rgba(5, 7, 11, 0.16), rgba(5, 7, 11, 0.48)),
-    url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1400&q=80")
-      center/cover;
+    url("/wedding-main.jpg") center/cover;
 }
 
 .momentGrid,

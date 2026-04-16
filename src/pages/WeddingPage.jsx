@@ -1,4 +1,4 @@
-import CTASection from "../components/CTASection";
+﻿import CTASection from "../components/CTASection";
 import { mediaLinks } from "../data/mediaLinks";
 import LeadForm from "../components/LeadForm";
 import PageShell from "../components/PageShell";
@@ -19,13 +19,8 @@ export default function WeddingPage() {
         <div className={styles.container}>
           <div className={styles.heroPanel}>
             <div className={styles.copy}>
-              <span className={styles.badge}>Свадебный лендинг</span>
-              <h1>Свадьба, в которой есть чувство стиля, воздуха и настоящих эмоций</h1>
-              <p>
-                Эта страница собрана иначе, чем корпоративная или выпускная:
-                здесь больше легкости, эстетики, теплого света и смыслового
-                акцента на паре, а не на громкости ведущего.
-              </p>
+              <span className={styles.badge}>Свадьбы</span>
+              <h1>Свадьбы без неловкости и шаблонов</h1>
             </div>
             <div className={styles.frame}>
               <div className={styles.framePhoto} />
@@ -57,9 +52,8 @@ export default function WeddingPage() {
             <div className={styles.noteCard}>
               <h3>Что особенно важно на свадьбе</h3>
               <p>
-                Ведущий не должен спорить с эстетикой мероприятия. Его задача
-                поддержать стиль пары, собрать гостей в единое настроение и
-                оставить пространство для искренних эмоций.
+                Ведущий не должен спорить с эстетикой мероприятия. Его задача поддержать стиль пары, собрать гостей в единое
+                настроение и оставить пространство для искренних эмоций.
               </p>
             </div>
             <div className={styles.galleryCard}>
@@ -113,5 +107,3 @@ export default function WeddingPage() {
     </PageShell>
   );
 }
-
-

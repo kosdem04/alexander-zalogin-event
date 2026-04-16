@@ -78,9 +78,10 @@
 
 .poster h1 {
   margin: 18px 0 20px;
-  font-size: clamp(56px, 8vw, 132px);
-  line-height: 0.84;
-  letter-spacing: -0.08em;
+  font-size: clamp(42px, 6.6vw, 102px);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  word-break: break-word;
 }
 
 .poster p,
