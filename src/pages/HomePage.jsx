@@ -270,12 +270,17 @@ export default function HomePage() {
               <a className={styles.phoneLink} href={contactLinks.phoneHref}>
                 {contactLinks.phoneDisplay}
               </a>
-              <a className={styles.primaryButton} href={contactLinks.telegramHref} target="_blank" rel="noreferrer">
-                Написать в Telegram
-              </a>
-              <a className={styles.secondaryButton} href={contactLinks.instagramHref} target="_blank" rel="noreferrer">
-                Написать в Instagram
-              </a>
+              <div className={styles.messengerIcons}>
+                <a className={`${styles.messengerIcon} ${styles.telegramIcon}`} href={contactLinks.telegramHref} target="_blank" rel="noreferrer" aria-label="Telegram" title="Telegram">
+                  TG
+                </a>
+                <a className={`${styles.messengerIcon} ${styles.instagramIcon}`} href={contactLinks.instagramHref} target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram">
+                  IG
+                </a>
+                <a className={`${styles.messengerIcon} ${styles.maxIcon}`} href={contactLinks.maxHref} target="_blank" rel="noreferrer" aria-label="MAX" title="MAX">
+                  MAX
+                </a>
+              </div>
             </div>
           </div>
         </div>
