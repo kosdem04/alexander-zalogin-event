@@ -1,4 +1,6 @@
-﻿import { contactLinks } from "../data/contactLinks";
+﻿import { useEffect, useRef, useState } from "react";
+
+import { contactLinks } from "../data/contactLinks";
 import { mediaLinks } from "../data/mediaLinks";
 import PageShell from "../components/PageShell";
 import styles from "./HomePage.module.css";
@@ -29,7 +31,9 @@ const photos = [
   { src: "/%D1%84%D0%BE%D1%82%D0%BE3.jpg", alt: "Фото с мероприятия 3", className: "top" },
   { src: "/%D1%84%D0%BE%D1%82%D0%BE4.jpg", alt: "Фото с мероприятия 4", className: "center" },
   { src: "/%D1%84%D0%BE%D1%82%D0%BE5.jpg", alt: "Фото с мероприятия 5", className: "left" },
-  { src: "/wedding-main.jpg", alt: "Эмоции гостей", className: "right" },
+  { src: "/%D1%84%D0%BE%D1%82%D0%BE%206.jpg", alt: "Фото с мероприятия 6", className: "right" },
+  { src: "/%D1%84%D0%BE%D1%82%D0%BE7.jpg", alt: "Фото с мероприятия 7", className: "top" },
+  { src: "/%D1%84%D0%BE%D1%82%D0%BE8.jpg", alt: "Фото с мероприятия 8", className: "center" },
 ];
 
 const results = [
@@ -40,7 +44,7 @@ const results = [
   "Спокойствие заказчика в день события",
 ];
 
-const clients = ["Лента", "Магнит", "РТС-Тендер", "Сбер", "2ГИС", "Брусника"];
+const clients = ["Лента", "Магнит", "РТС-Тендер", "2ГИС"];
 
 const reviews = [
   {
@@ -70,6 +74,40 @@ const reviews = [
 ];
 
 export default function HomePage() {
+  const [showAllPhotos, setShowAllPhotos] = useState(false);
+  const visiblePhotos = showAllPhotos ? photos : photos.slice(0, 5);
+  const photoCardRefs = useRef([]);
+  const [photoSpans, setPhotoSpans] = useState({});
+
+  const updatePhotoSpan = (index) => {
+    const card = photoCardRefs.current[index];
+    if (!card) return;
+
+    const image = card.querySelector("img");
+    if (!image) return;
+
+    const rowHeight = 8;
+    const rowGap = 14;
+    const imageHeight = image.getBoundingClientRect().height;
+    const span = Math.max(1, Math.ceil((imageHeight + rowGap) / (rowHeight + rowGap)));
+
+    setPhotoSpans((prev) => {
+      if (prev[index] === span) return prev;
+      return { ...prev, [index]: span };
+    });
+  };
+
+  useEffect(() => {
+    const onResize = () => {
+      visiblePhotos.forEach((_, index) => updatePhotoSpan(index));
+    };
+
+    window.addEventListener("resize", onResize);
+    onResize();
+
+    return () => window.removeEventListener("resize", onResize);
+  }, [visiblePhotos.length]);
+
   return (
     <PageShell className={styles.page}>
       <section className={styles.hero}>
@@ -118,17 +156,7 @@ export default function HomePage() {
           <div className={styles.verticalVideos}>
             {verticalVideos.map((item) => (
               <article key={item.title} className={styles.videoCard}>
-                <video
-                  className={styles.verticalVideo}
-                  src={item.src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
-                  preload="metadata"
-                />
-                <span>{item.title}</span>
+                <video className={styles.verticalVideo} src={item.src} autoPlay muted loop playsInline controls preload="metadata" />
               </article>
             ))}
           </div>
@@ -143,17 +171,7 @@ export default function HomePage() {
           <div className={styles.showreelGrid}>
             {showreels.map((item) => (
               <article key={item.title} className={styles.videoWideCard}>
-                <video
-                  className={styles.wideVideo}
-                  src={item.src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
-                  preload="metadata"
-                />
-                <span>{item.title}</span>
+                <video className={styles.wideVideo} src={item.src} autoPlay muted loop playsInline controls preload="metadata" />
               </article>
             ))}
           </div>
@@ -167,12 +185,30 @@ export default function HomePage() {
             <h3>Живые эмоции гостей и атмосфера вечера</h3>
           </div>
           <div className={styles.photoGrid}>
-            {photos.map((photo, index) => (
-              <figure key={`${photo.alt}-${index}`} className={styles.photoCard}>
-                <img src={photo.src} alt={photo.alt} className={`${styles.galleryPhoto} ${styles[photo.className]}`} loading="lazy" />
+            {visiblePhotos.map((photo, index) => (
+              <figure
+                key={`${photo.alt}-${index}`}
+                className={styles.photoCard}
+                ref={(node) => {
+                  photoCardRefs.current[index] = node;
+                }}
+                style={photoSpans[index] ? { gridRowEnd: `span ${photoSpans[index]}` } : undefined}
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className={`${styles.galleryPhoto} ${styles[photo.className]}`}
+                  loading="lazy"
+                  onLoad={() => updatePhotoSpan(index)}
+                />
               </figure>
             ))}
           </div>
+          {!showAllPhotos && photos.length > 5 ? (
+            <button type="button" className={styles.showMoreButton} onClick={() => setShowAllPhotos(true)}>
+              Показать еще
+            </button>
+          ) : null}
         </div>
       </section>
 
@@ -182,10 +218,11 @@ export default function HomePage() {
             <p>Что вы получите</p>
             <h3>Результат по факту</h3>
           </div>
-          <div className={styles.pointsGrid}>
-            {results.map((item) => (
-              <article key={item} className={styles.card}>
-                {item}
+          <div className={styles.resultsList}>
+            {results.map((item, index) => (
+              <article key={item} className={styles.resultItem}>
+                <span>{index + 1}</span>
+                <p>{item}</p>
               </article>
             ))}
           </div>
@@ -246,3 +283,6 @@ export default function HomePage() {
     </PageShell>
   );
 }
+
+
+
