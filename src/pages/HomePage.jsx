@@ -1,318 +1,220 @@
-﻿import { useEffect } from "react";
-import { Link } from "react-router-dom";
-
-import LeadForm from "../components/LeadForm";
+﻿import { contactLinks } from "../data/contactLinks";
 import { mediaLinks } from "../data/mediaLinks";
 import PageShell from "../components/PageShell";
-import SectionTitle from "../components/SectionTitle";
 import styles from "./HomePage.module.css";
 
-const benefits = [
-  {
-    index: "01",
-    title: "Интеллигентный юмор",
-    text: "Без пошлых конкурсов и давления на гостей.",
-  },
-  {
-    index: "02",
-    title: "Персональный сценарий",
-    text: "Каждое событие собирается под конкретных людей.",
-  },
-  {
-    index: "03",
-    title: "Опыт от 6 до 500+ гостей",
-    text: "От камерных ужинов до больших мероприятий.",
-  },
-  {
-    index: "04",
-    title: "Актёрская база",
-    text: "Ритм, речь и точная работа с настроением зала.",
-  },
-  {
-    index: "05",
-    title: "Команда с DJ",
-    text: "Музыка и динамика вечера работают как единое целое.",
-  },
-  {
-    index: "06",
-    title: "Ограниченный слот",
-    text: "Не более 8 банкетов в месяц для высокого качества.",
-  },
+const choosePoints = [
+  "Без шаблонных конкурсов и неловких пауз",
+  "Живой юмор и уважение к гостям",
+  "Персональный сценарий под вашу аудиторию",
+  "Контроль ритма и тайминга вечера",
+  "Опыт с форматами от 20 до 500+ гостей",
 ];
 
-const cases = [
-  {
-    title: "Свадьбы",
-    text: "Вкус, такт и красивая атмосфера вечера.",
-  },
-  {
-    title: "Корпоративы",
-    text: "Уважение к статусу и чёткий ритм программы.",
-  },
-  {
-    title: "Выпускные",
-    text: "Живая энергия и комфорт для всех поколений.",
-  },
+const verticalVideos = [
+  { title: "Свадьба", src: mediaLinks.reelsVideoUrl },
+  { title: "Корпоратив", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D1%80%D0%B8%D0%BB%D1%81%20%D0%BA%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2.mp4" },
+  { title: "Юбилей", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D1%80%D0%B8%D0%BB%D1%81%20%D1%8E%D0%B1%D0%B8%D0%BB%D0%B5%D0%B9.mp4" },
 ];
 
-const formats = [
-  ["Свадьбы", "/weddings", "Стильный вечер с персональной драматургией."],
-  ["Корпоративы", "/corporate", "События для команды и бренда без перегруза."],
-  ["Дни рождения", "/anniversaries", "Личный праздник с правильной атмосферой."],
-  ["Выпускные", "/graduations", "Современный формат и живые эмоции зала."],
+const showreels = [
+  { title: "Шоурил 2026", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D1%81%D0%B2%D0%B0%D0%B4%D0%B5%D0%B1%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%BC%D0%BE.mp4" },
+  { title: "Подборка мероприятий", src: mediaLinks.sampleVideoUrl },
 ];
+
+const photos = [
+  { src: "/wedding-main.jpg", alt: "Свадебный вечер", className: "center" },
+  { src: "/%D1%84%D0%BE%D1%82%D0%BE1.jpg", alt: "Фото с мероприятия 1", className: "left" },
+  { src: "/%D1%84%D0%BE%D1%82%D0%BE2.jpg", alt: "Фото с мероприятия 2", className: "right" },
+  { src: "/%D1%84%D0%BE%D1%82%D0%BE3.jpg", alt: "Фото с мероприятия 3", className: "top" },
+  { src: "/%D1%84%D0%BE%D1%82%D0%BE4.jpg", alt: "Фото с мероприятия 4", className: "center" },
+  { src: "/%D1%84%D0%BE%D1%82%D0%BE5.jpg", alt: "Фото с мероприятия 5", className: "left" },
+  { src: "/wedding-main.jpg", alt: "Эмоции гостей", className: "right" },
+];
+
+const results = [
+  "Понятная структура вечера без хаоса",
+  "Комфорт гостей разного возраста",
+  "Динамика без перегруза и провисаний",
+  "Уверенное проведение от старта до финала",
+  "Спокойствие заказчика в день события",
+];
+
+const clients = ["Лента", "Магнит", "РТС-Тендер", "Сбер", "2ГИС", "Брусника"];
 
 const reviews = [
   {
-    author: "Свадьба, 84 гостя",
-    text: "Спокойно, красиво и очень по-человечески.",
+    text: "Гости остались в восторге. Без перегибов, всё очень современно и легко.",
+    author: "Свадьба, 78 гостей",
   },
   {
+    text: "Сохранили статус события и при этом сделали теплую атмосферу для команды.",
     author: "Корпоратив, 160 гостей",
-    text: "Удалось сохранить и статус, и лёгкость.",
   },
   {
+    text: "Разный возраст гостей, но всем было комфортно. Отличная подача и темп.",
     author: "Юбилей, семейный формат",
-    text: "Вечер получился живым и действительно личным.",
+  },
+  {
+    text: "Четкий сценарий, понятная коммуникация и уверенное ведение на площадке.",
+    author: "Выпускной, 120 гостей",
+  },
+  {
+    text: "С первой встречи стало понятно, что мы в надежных руках.",
+    author: "Свадьба, 94 гостя",
+  },
+  {
+    text: "Помог собрать программу так, что вечер прошел на одном дыхании.",
+    author: "Частное мероприятие, 50 гостей",
   },
 ];
-
-const previews = [
-  {
-    label: "Свадьбы",
-    title: "Тёплые вечера без шаблонной подачи",
-    text: "Живая атмосфера и внимание к людям.",
-  },
-  {
-    label: "Корпоративы",
-    title: "Статус события без перегруза",
-    text: "Современная подача и точная динамика.",
-  },
-  {
-    label: "Портфолио",
-    title: "Видео и реальные кейсы по запросу",
-    text: "Напишите мне и получите актуальные материалы.",
-  },
-];
-
-const steps = [
-  {
-    title: "Заявка",
-    text: "Вы отправляете дату, локацию и формат.",
-  },
-  {
-    title: "Созвон",
-    text: "Собираем концепцию, тайминг и драматургию.",
-  },
-  {
-    title: "Подготовка",
-    text: "Делаю персональную программу под ваш вечер.",
-  },
-  {
-    title: "Проведение",
-    text: "Держу ритм, атмосферу и внимание гостей.",
-  },
-];
-
-const checklist = ["Дата", "Локация", "Количество гостей", "Продолжительность"];
 
 export default function HomePage() {
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    const elements = document.querySelectorAll("[data-reveal]");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add(styles.revealed);
-          observer.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -12% 0px" },
-    );
-
-    elements.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <PageShell className={styles.page}>
-      <section className={`${styles.hero} ${styles.reveal}`} data-reveal>
+      <section className={styles.hero}>
         <div className={styles.container}>
           <div className={styles.heroGrid}>
-            <div className={styles.heroIntro}>
-              <span className={styles.badge}>Ведущий мероприятий премиального сегмента</span>
-              <h1>
-                Выбирая меня, вы выбираете <span>спокойствие за атмосферу вечера.</span>
-              </h1>
+            <div className={styles.heroName}>
+              <p className={styles.eyebrow}>Ведущий мероприятий</p>
+              <h1>Александр Залогин</h1>
             </div>
 
-            <div className={styles.heroArt}>
-              <div className={styles.photoCard}>
-                <div className={styles.orbit} />
-                <div className={styles.portrait}>
-                  <div className={styles.portraitLabel}>
-                    <strong>Александр Залогин</strong>
-                    <span>Харизматичный, уверенный и профессиональный ведущий без шаблонного ведения.</span>
-                  </div>
-                </div>
-              </div>
-              <div className={styles.heroIdentity}>
-                <strong>Александр Залогин</strong>
-                <span>Харизматичный, уверенный и профессиональный ведущий без шаблонного ведения.</span>
-              </div>
-              <div className={styles.heroNote}>
-                Договор, наличный и безналичный расчёт, команда с DJ, помощь в организации и персональная программа под ваш формат.
-              </div>
+            <div className={styles.heroPhotoWrap}>
+              <img src="/main.jpg" alt="Александр Залогин" className={styles.heroPhoto} />
             </div>
 
-            <div className={styles.heroCopy}>
-              <p>Ведущий, для которого важны люди, ритм события и впечатление, которое остаётся после праздника.</p>
-              <div className={styles.actions}>
-                <Link to="/contacts" className={styles.primary}>
-                  Оставить заявку
-                </Link>
-                <a href="#about" className={styles.secondary}>
-                  Обо мне
-                </a>
-              </div>
-              <div className={styles.metrics}>
-                <div className={styles.metricCard}>
-                  <strong>6 лет</strong>
-                  <span>в event-сфере и актёрской среде</span>
-                </div>
-                <div className={styles.metricCard}>
-                  <strong>500+</strong>
-                  <span>гостей на крупных мероприятиях</span>
-                </div>
-                <div className={`${styles.metricCard} ${styles.desktopMetric}`}>
-                  <strong>8</strong>
-                  <span>банкетов в месяц максимум</span>
-                </div>
-              </div>
+            <div className={styles.heroDetails}>
+              <h2>Современное ведение без пошлости и суеты</h2>
+              <p className={styles.heroText}>Собираю вечер так, чтобы гостям было комфортно, а вам спокойно за результат.</p>
+              <a className={styles.primaryButton} href="#lead">
+                Оставить заявку
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      <section className={`${styles.promoSection} ${styles.reveal}`} data-reveal>
+      <section className={styles.section}>
         <div className={styles.container}>
-          <div className={styles.promoWrap}>
-            <video
-              className={styles.promoVideo}
-              src={mediaLinks.promoVideoUrl}
-              autoPlay
-              muted
-              loop
-              playsInline
-              controls
-              preload="metadata"
-            />
+          <div className={styles.sectionHead}>
+            <h3>За что меня выбирают</h3>
           </div>
-        </div>
-      </section>
-
-      <section className={`${styles.previewRailSection} ${styles.reveal}`} data-reveal>
-        <div className={styles.container}>
-          <div className={styles.previewRail}>
-            {previews.map((item) => (
-              <article key={item.title} className={styles.previewCard}>
-                <div className={styles.previewVisual}>
-                  <video
-                    className={styles.sampleVideo}
-                    src={mediaLinks.reelsVideoUrl}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    controls
-                    preload="metadata"
-                  />
-                </div>
-                <span>{item.label}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
+          <div className={styles.pointsGrid}>
+            {choosePoints.map((item) => (
+              <article key={item} className={styles.card}>
+                {item}
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="about" className={`${styles.about} ${styles.reveal}`} data-reveal>
+      <section className={styles.section}>
         <div className={styles.container}>
-          <SectionTitle eyebrow="Обо мне" title="На первом месте комфорт гостей." text="Более 5 лет в творческой профессии" />
-          <div className={styles.aboutGrid}>
-            <article className={styles.aboutCard}>
-              <h3>Подача</h3>
-              <p>Без неловких конкурсов, с тактом и лёгкостью.</p>
-            </article>
-            <article className={styles.aboutCard}>
-              <h3>Опыт</h3>
-              <p>События от камерных ужинов до 500+ гостей.</p>
-            </article>
-            <article className={styles.aboutCard}>
-              <h3>Клиенты</h3>
-              <p>Лента, Магнит, РТС-Тендер. Договор и прозрачные условия.</p>
-            </article>
+          <div className={styles.sectionHead}>
+            <p>Reels / Shorts</p>
           </div>
-        </div>
-      </section>
-
-      <section className={`${styles.benefits} ${styles.reveal}`} data-reveal>
-        <div className={styles.container}>
-          <SectionTitle eyebrow="Почему выбирают меня" title="Современное ведение без кринжа" text="Коротко о главных преимуществах." />
-          <div className={styles.benefitGrid}>
-            {benefits.map((item) => (
-              <article key={item.title} className={styles.benefitCard}>
-                <span>{item.index}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
+          <div className={styles.verticalVideos}>
+            {verticalVideos.map((item) => (
+              <article key={item.title} className={styles.videoCard}>
+                <video
+                  className={styles.verticalVideo}
+                  src={item.src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  preload="metadata"
+                />
+                <span>{item.title}</span>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className={`${styles.cases} ${styles.reveal}`} data-reveal>
+      <section className={styles.section}>
         <div className={styles.container}>
-          <SectionTitle
-            eyebrow="Видео / кейсы"
-            title="Эмоции гостей, красивый ритм и чувство меры"
-            text="Напишите слово «ПОРТФОЛИО», и я отправлю видео-примеры."
-          />
-          <div className={styles.caseGrid}>
-            {cases.map((item) => (
-              <article key={item.title} className={styles.caseCard}>
-                <div className={styles.caseVisual} />
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
+          <div className={styles.sectionHead}>
+            <p>Шоурилы</p>
+          </div>
+          <div className={styles.showreelGrid}>
+            {showreels.map((item) => (
+              <article key={item.title} className={styles.videoWideCard}>
+                <video
+                  className={styles.wideVideo}
+                  src={item.src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  preload="metadata"
+                />
+                <span>{item.title}</span>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="formats" className={`${styles.formats} ${styles.reveal}`} data-reveal>
+      <section className={styles.section}>
         <div className={styles.container}>
-          <SectionTitle eyebrow="Форматы мероприятий" title="Ключевые направления" text="Выберите нужный формат и откройте подробную страницу." />
-          <div className={styles.formatGrid}>
-            {formats.map(([title, to, text], index) => (
-              <Link key={title} to={to} className={styles.formatCard}>
-                <span>0{index + 1}</span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </Link>
+          <div className={styles.sectionHead}>
+            <p>Фото с мероприятий</p>
+            <h3>Живые эмоции гостей и атмосфера вечера</h3>
+          </div>
+          <div className={styles.photoGrid}>
+            {photos.map((photo, index) => (
+              <figure key={`${photo.alt}-${index}`} className={styles.photoCard}>
+                <img src={photo.src} alt={photo.alt} className={`${styles.galleryPhoto} ${styles[photo.className]}`} loading="lazy" />
+              </figure>
             ))}
           </div>
         </div>
       </section>
 
-      <section className={`${styles.reviews} ${styles.reveal}`} data-reveal>
+      <section className={styles.section}>
         <div className={styles.container}>
-          <SectionTitle eyebrow="Отзывы" title="Когда всё собрано правильно, гости это чувствуют" text="Реальные эмоции и спокойствие заказчика." />
-          <div className={styles.reviewGrid}>
+          <div className={styles.sectionHead}>
+            <p>Что вы получите</p>
+            <h3>Результат по факту</h3>
+          </div>
+          <div className={styles.pointsGrid}>
+            {results.map((item) => (
+              <article key={item} className={styles.card}>
+                {item}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.container}>
+          <div className={styles.sectionHead}>
+            <p>Мне доверяют</p>
+            <h3>Клиенты и бренды</h3>
+          </div>
+          <div className={styles.logosGrid}>
+            {clients.map((client) => (
+              <div key={client} className={styles.logoItem}>
+                {client}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.container}>
+          <div className={styles.sectionHead}>
+            <p>Отзывы</p>
+            <h3>Что говорят после мероприятий</h3>
+          </div>
+          <div className={styles.reviewsGrid}>
             {reviews.map((review) => (
               <article key={review.author} className={styles.reviewCard}>
                 <p>{review.text}</p>
@@ -323,37 +225,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className={`${styles.process} ${styles.reveal}`} data-reveal>
+      <section id="lead" className={styles.finalCta}>
         <div className={styles.container}>
-          <SectionTitle eyebrow="Как проходит работа" title="От первого сообщения до уверенного вечера" text="Просто, прозрачно и без лишней суеты." />
-          <div className={styles.stepGrid}>
-            {steps.map((step, index) => (
-              <article key={step.title} className={styles.stepCard}>
-                <span>Шаг {index + 1}</span>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className={`${styles.finalCta} ${styles.reveal}`} data-reveal>
-        <div className={styles.container}>
-          <div className={styles.ctaGrid}>
-            <div className={styles.ctaCopy}>
-              <SectionTitle
-                eyebrow="Финальный CTA"
-                title="Напишите, если нужен ведущий, который чувствует зал"
-                text="Для расчёта стоимости отправьте базовую информацию о событии."
-              />
-              <div className={styles.checklist}>
-                {checklist.map((item) => (
-                  <div key={item}>{item}</div>
-                ))}
-              </div>
+          <div className={styles.finalGrid}>
+            <div className={styles.finalStack}>
+              <h3 className={styles.finalTitle}>ПОЗНАКОМИМСЯ?</h3>
+              <a className={styles.phoneLink} href={contactLinks.phoneHref}>
+                {contactLinks.phoneDisplay}
+              </a>
+              <a className={styles.primaryButton} href={contactLinks.telegramHref} target="_blank" rel="noreferrer">
+                Написать в Telegram
+              </a>
+              <a className={styles.secondaryButton} href={contactLinks.instagramHref} target="_blank" rel="noreferrer">
+                Написать в Instagram
+              </a>
             </div>
-            <LeadForm compact title="Оставьте заявку" note="Напишите в Telegram или WhatsApp, и я предложу формат и тайминг под ваше событие." />
           </div>
         </div>
       </section>
