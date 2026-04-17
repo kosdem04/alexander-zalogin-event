@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: alexhost-site
+    container_name: zaloginevent-site
     ports:
       - "8081:80"
     restart: unless-stopped

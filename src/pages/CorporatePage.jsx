@@ -76,7 +76,7 @@ export default function CorporatePage() {
           <div className={styles.experienceGrid}>
             <div className={styles.experienceStatement}>
               <span className={styles.kicker}>Опыт</span>
-              <h2>Работаю там, где нельзя терять темп, статус и фокус аудитории.</h2>
+              <h2>Работаю там, где нельзя терять статус мероприятия</h2>
             </div>
             <div className={styles.experienceText}>
               <p>

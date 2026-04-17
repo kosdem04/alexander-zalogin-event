@@ -1,4 +1,4 @@
-# AlexHost Site
+# ZALOGINEVENT Site
 
 Локальный frontend-проект на `React + Vite` для многостраничного сайта ведущего мероприятий.
 

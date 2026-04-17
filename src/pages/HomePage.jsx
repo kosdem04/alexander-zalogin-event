@@ -242,7 +242,7 @@ export default function HomePage() {
 
       <section id="about" className={`${styles.about} ${styles.reveal}`} data-reveal>
         <div className={styles.container}>
-          <SectionTitle eyebrow="Обо мне" title="Собираю событие так, чтобы людям было хорошо вместе." text="6 лет в event-сфере и актёрской среде." />
+          <SectionTitle eyebrow="Обо мне" title="На первом месте комфорт гостей." text="Более 5 лет в творческой профессии" />
           <div className={styles.aboutGrid}>
             <article className={styles.aboutCard}>
               <h3>Подача</h3>

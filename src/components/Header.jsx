@@ -21,7 +21,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.inner}>
         <NavLink to="/" className={styles.logo} onClick={closeMenu}>
-          ALEX<span>HOST</span>
+          ZALOGIN<span>EVENT</span>
         </NavLink>
 
         <button
