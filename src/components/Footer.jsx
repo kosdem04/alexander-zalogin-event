@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div>
-          <strong>Александр - ведущий мероприятий</strong>
+          <strong>Александр Залогин - Ведущий мероприятий, где важны люди</strong>
           <p>Свадьбы, корпоративы, юбилеи, выпускные, статусные вечера и масштабные события.</p>
         </div>
         <div className={styles.contacts}>
@@ -15,10 +15,11 @@ export default function Footer() {
             Telegram: {contactLinks.telegramHandle}
           </a>
           <a href={contactLinks.instagramHref} target="_blank" rel="noreferrer">
-            Instagram: {contactLinks.instagramHandle}
+            Нельзяграм: {contactLinks.instagramHandle}
           </a>
         </div>
       </div>
     </footer>
   );
 }
+

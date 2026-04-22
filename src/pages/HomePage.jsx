@@ -34,14 +34,15 @@ const photos = [
   { src: "/%D1%84%D0%BE%D1%82%D0%BE%206.jpg", alt: "Фото с мероприятия 6", className: "right" },
   { src: "/%D1%84%D0%BE%D1%82%D0%BE7.jpg", alt: "Фото с мероприятия 7", className: "top" },
   { src: "/%D1%84%D0%BE%D1%82%D0%BE8.jpg", alt: "Фото с мероприятия 8", className: "center" },
+  { src: "/%D1%84%D0%BE%D1%82%D0%BE9.jpg", alt: "Фото с мероприятия 9", className: "right" },
 ];
 
 const results = [
-  "Понятная структура вечера без хаоса",
-  "Комфорт гостей разного возраста",
-  "Динамика без перегруза и провисаний",
-  "Уверенное проведение от старта до финала",
-  "Спокойствие заказчика в день события",
+  "Проведение мероприятия",
+  "Професионального DJ+ аппаратуру",
+  "Составление индивидуального сценария",
+  "Помощь в организации",
+  "Спокойствие за ваше мероприятие",
 ];
 
 const clients = ["Лента", "Магнит", "РТС-Тендер", "2ГИС"];
@@ -108,6 +109,20 @@ export default function HomePage() {
     return () => window.removeEventListener("resize", onResize);
   }, [visiblePhotos.length]);
 
+  useEffect(() => {
+    const recalc = () => {
+      visiblePhotos.forEach((_, index) => updatePhotoSpan(index));
+    };
+
+    const rafId = window.requestAnimationFrame(recalc);
+    const timerId = window.setTimeout(recalc, 350);
+
+    return () => {
+      window.cancelAnimationFrame(rafId);
+      window.clearTimeout(timerId);
+    };
+  }, [showAllPhotos, visiblePhotos.length]);
+
   return (
     <PageShell className={styles.page}>
       <section className={styles.hero}>
@@ -123,7 +138,7 @@ export default function HomePage() {
             </div>
 
             <div className={styles.heroDetails}>
-              <h2>Современное ведение без пошлости и суеты</h2>
+              <h2>Ведущий мероприятий, где важны люди</h2>
               <p className={styles.heroText}>Собираю вечер так, чтобы гостям было комфортно, а вам спокойно за результат.</p>
               <a className={styles.primaryButton} href="#lead">
                 Оставить заявку
@@ -136,7 +151,7 @@ export default function HomePage() {
       <section className={styles.section}>
         <div className={styles.container}>
           <div className={styles.sectionHead}>
-            <h3>За что меня выбирают</h3>
+            <h3>Обо мне</h3>
           </div>
           <div className={styles.pointsGrid}>
             {choosePoints.map((item) => (
@@ -198,7 +213,7 @@ export default function HomePage() {
                   src={photo.src}
                   alt={photo.alt}
                   className={`${styles.galleryPhoto} ${styles[photo.className]}`}
-                  loading="lazy"
+                  loading={showAllPhotos ? "eager" : "lazy"}
                   onLoad={() => updatePhotoSpan(index)}
                 />
               </figure>
@@ -288,6 +303,7 @@ export default function HomePage() {
     </PageShell>
   );
 }
+
 
 
 
