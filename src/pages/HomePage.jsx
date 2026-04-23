@@ -47,35 +47,18 @@ const results = [
 
 const clients = ["Лента", "Магнит", "РТС-Тендер", "2ГИС"];
 
-const reviews = [
-  {
-    text: "Гости остались в восторге. Без перегибов, всё очень современно и легко.",
-    author: "Свадьба, 78 гостей",
-  },
-  {
-    text: "Сохранили статус события и при этом сделали теплую атмосферу для команды.",
-    author: "Корпоратив, 160 гостей",
-  },
-  {
-    text: "Разный возраст гостей, но всем было комфортно. Отличная подача и темп.",
-    author: "Юбилей, семейный формат",
-  },
-  {
-    text: "Четкий сценарий, понятная коммуникация и уверенное ведение на площадке.",
-    author: "Выпускной, 120 гостей",
-  },
-  {
-    text: "С первой встречи стало понятно, что мы в надежных руках.",
-    author: "Свадьба, 94 гостя",
-  },
-  {
-    text: "Помог собрать программу так, что вечер прошел на одном дыхании.",
-    author: "Частное мероприятие, 50 гостей",
-  },
+const reviewPhotos = [
+  { src: "/feedbacks/%D0%B4%D0%B2%D0%B0%20%D0%B4%D0%B8%D0%B2%D0%B0%D0%BD%D0%B0.png", alt: "Отзыв с мероприятия: два дивана" },
+  { src: "/feedbacks/%D0%BC%D0%B0%D1%84%D0%B8%D1%8F1.jpg", alt: "Отзыв с мероприятия: мафия 1" },
+  { src: "/feedbacks/%D0%BC%D0%B0%D1%84%D0%B8%D1%8F2.jpg", alt: "Отзыв с мероприятия: мафия 2" },
+  { src: "/feedbacks/%D0%BE%D1%82%D0%B7%D1%8B%D0%B21.jpg", alt: "Отзыв с мероприятия 1" },
+  { src: "/feedbacks/%D0%BE%D1%82%D0%B7%D1%8B%D0%B22.jpg", alt: "Отзыв с мероприятия 2" },
+  { src: "/feedbacks/%D1%81%D0%B2%D0%B0%D0%B4%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9-%D0%BE%D1%82%D0%B7%D0%B21.jpg", alt: "Свадебный отзыв" },
 ];
 
 export default function HomePage() {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
+  const [activeReviewIndex, setActiveReviewIndex] = useState(0);
   const visiblePhotos = showAllPhotos ? photos : photos.slice(0, 5);
   const photoCardRefs = useRef([]);
   const [photoSpans, setPhotoSpans] = useState({});
@@ -122,6 +105,14 @@ export default function HomePage() {
       window.clearTimeout(timerId);
     };
   }, [showAllPhotos, visiblePhotos.length]);
+
+  const showPrevReview = () => {
+    setActiveReviewIndex((prev) => (prev === 0 ? reviewPhotos.length - 1 : prev - 1));
+  };
+
+  const showNextReview = () => {
+    setActiveReviewIndex((prev) => (prev === reviewPhotos.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <PageShell className={styles.page}>
@@ -267,12 +258,36 @@ export default function HomePage() {
             <h3>Что говорят после мероприятий</h3>
           </div>
           <div className={styles.reviewsGrid}>
-            {reviews.map((review) => (
-              <article key={review.author} className={styles.reviewCard}>
-                <p>{review.text}</p>
-                <strong>{review.author}</strong>
-              </article>
-            ))}
+            <div className={styles.reviewsStage}>
+              <button type="button" className={styles.reviewArrow} onClick={showPrevReview} aria-label="Предыдущий отзыв">
+                <span aria-hidden="true">‹</span>
+              </button>
+              <div className={styles.reviewsViewport}>
+                <div className={styles.reviewsTrack} style={{ transform: `translateX(-${activeReviewIndex * 100}%)` }}>
+                  {reviewPhotos.map((reviewPhoto, index) => (
+                    <figure key={reviewPhoto.src} className={styles.reviewSlide} aria-hidden={index !== activeReviewIndex}>
+                      <img className={styles.reviewImage} src={reviewPhoto.src} alt={reviewPhoto.alt} loading={index === activeReviewIndex ? "eager" : "lazy"} decoding="async" />
+                    </figure>
+                  ))}
+                </div>
+              </div>
+              <button type="button" className={styles.reviewArrow} onClick={showNextReview} aria-label="Следующий отзыв">
+                <span aria-hidden="true">›</span>
+              </button>
+            </div>
+            <div className={styles.reviewsControls}>
+              <div className={styles.reviewsDots}>
+                {reviewPhotos.map((reviewPhoto, index) => (
+                  <button
+                    key={`${reviewPhoto.src}-dot`}
+                    type="button"
+                    className={`${styles.reviewDot} ${index === activeReviewIndex ? styles.reviewDotActive : ""}`}
+                    onClick={() => setActiveReviewIndex(index)}
+                    aria-label={`Показать отзыв ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -303,7 +318,4 @@ export default function HomePage() {
     </PageShell>
   );
 }
-
-
-
 

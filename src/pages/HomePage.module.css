@@ -125,7 +125,6 @@
 
 .pointsGrid,
 .logosGrid,
-.reviewsGrid,
 .showreelGrid {
   display: grid;
   gap: 14px;
@@ -301,13 +300,101 @@
 }
 
 .reviewCard {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.reviewImage {
+  width: 100%;
+  max-height: min(62vh, 560px);
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.reviewsGrid {
   display: grid;
+  gap: 12px;
+}
+
+.reviewsStage {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
   gap: 10px;
 }
 
-.reviewCard strong {
-  font-size: 14px;
-  color: #8dccff;
+.reviewsViewport {
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.035);
+  box-shadow: var(--shadow);
+}
+
+.reviewsTrack {
+  display: flex;
+  transition: transform 0.32s ease;
+}
+
+.reviewSlide {
+  margin: 0;
+  min-width: 100%;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+}
+
+.reviewsControls {
+  display: flex;
+  justify-content: center;
+}
+
+.reviewArrow {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.reviewArrow:hover {
+  border-color: rgba(44, 140, 255, 0.45);
+}
+
+.reviewArrow span {
+  font-size: 28px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.reviewsDots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.reviewDot {
+  width: 10px;
+  height: 10px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+}
+
+.reviewDotActive {
+  background: #8dccff;
 }
 
 .pricingCard {
@@ -454,9 +541,13 @@
 
   .pointsGrid,
   .logosGrid,
-  .reviewsGrid,
   .showreelGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reviewsGrid {
+    max-width: 700px;
+    margin: 0 auto;
   }
 
   .verticalVideos {
@@ -478,10 +569,26 @@
   }
 
   .reviewsGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 760px;
   }
 
   .photoGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 759px) {
+  .reviewsStage {
+    grid-template-columns: 38px minmax(0, 1fr) 38px;
+    gap: 8px;
+  }
+
+  .reviewArrow {
+    width: 38px;
+    height: 38px;
+  }
+
+  .reviewImage {
+    max-height: min(54vh, 420px);
   }
 }
