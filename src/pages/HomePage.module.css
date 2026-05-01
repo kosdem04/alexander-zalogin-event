@@ -47,7 +47,33 @@
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
+}
+
+.eyebrow,
+.sectionHead p,
+.card h4,
+.videoCard span,
+.videoWideCard span,
+.calcCard p,
+.priceLabel {
+  background: linear-gradient(90deg, #62b8ff, #d8f2ff, #167cff, #8dccff);
+  background-size: 260% 100%;
   color: #8dccff;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: blueShimmer 4.5s ease-in-out infinite;
+}
+
+@keyframes blueShimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .heroName h1 {
@@ -186,6 +212,27 @@
   line-height: 1.45;
 }
 
+.card h4 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.aboutIntro {
+  max-width: 680px;
+  color: var(--muted);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
 .verticalVideos,
 .photoGrid {
   display: grid;
@@ -205,7 +252,6 @@
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #8dccff;
 }
 
 .verticalVideo,
@@ -277,7 +323,6 @@
 
 .calcCard p {
   margin: 0 0 6px;
-  color: #8dccff;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 12px;
@@ -410,7 +455,6 @@
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #8dccff;
 }
 
 .priceValue {

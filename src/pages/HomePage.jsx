@@ -5,12 +5,23 @@ import { mediaLinks } from "../data/mediaLinks";
 import PageShell from "../components/PageShell";
 import styles from "./HomePage.module.css";
 
-const choosePoints = [
-  "Без шаблонных конкурсов и неловких пауз",
-  "Живой юмор и уважение к гостям",
-  "Персональный сценарий под вашу аудиторию",
-  "Контроль ритма и тайминга вечера",
-  "Опыт с форматами от 20 до 500+ гостей",
+const aboutPoints = [
+  {
+    title: "Ведущий и актёр",
+    text: "В моей фильмографии 7 проектов. Часть из них - федерального проката.",
+  },
+  {
+    title: "Люблю импровизировать",
+    text: "Благодаря импровизации спас мероприятие во время пожарной тревоги на площадке.",
+  },
+  {
+    title: "Мой подход",
+    text: "Юмор в моём исполнении - это интеллигентный дебош.",
+  },
+  {
+    title: "Формат работы",
+    text: "На фестивале с не одной сотней гостей и на камерном корпоративе топ-менеджеров будет разный подход, но одинаково высокий уровень ответственности и стандартов.",
+  },
 ];
 
 const verticalVideos = [
@@ -143,11 +154,13 @@ export default function HomePage() {
         <div className={styles.container}>
           <div className={styles.sectionHead}>
             <h3>Обо мне</h3>
+            <p className={styles.aboutIntro}>Меня зовут Александр - я ведущий, который ненавидит посредственность.</p>
           </div>
           <div className={styles.pointsGrid}>
-            {choosePoints.map((item) => (
-              <article key={item} className={styles.card}>
-                {item}
+            {aboutPoints.map((item) => (
+              <article key={item.title} className={styles.card}>
+                <h4>{item.title}</h4>
+                <p>{item.text}</p>
               </article>
             ))}
           </div>
@@ -318,4 +331,3 @@ export default function HomePage() {
     </PageShell>
   );
 }
-
