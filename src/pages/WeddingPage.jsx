@@ -1,5 +1,6 @@
 ﻿import CTASection from "../components/CTASection";
 import { mediaLinks } from "../data/mediaLinks";
+import LazyVideo from "../components/LazyVideo";
 import LeadForm from "../components/LeadForm";
 import PageShell from "../components/PageShell";
 import SectionTitle from "../components/SectionTitle";
@@ -58,15 +59,10 @@ export default function WeddingPage() {
             </div>
             <div className={styles.galleryCard}>
               <div className={styles.galleryTop}>
-                <video
+                <LazyVideo
                   className={styles.sampleVideo}
                   src={mediaLinks.reelsVideoUrl}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
-                  preload="metadata"
+                  label="Свадебное видео"
                 />
               </div>
               <div className={styles.galleryBottom}>Фотоблок пары и гостей</div>

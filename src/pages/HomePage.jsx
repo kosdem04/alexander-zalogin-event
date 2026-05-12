@@ -2,6 +2,7 @@
 
 import { contactLinks } from "../data/contactLinks";
 import { mediaLinks } from "../data/mediaLinks";
+import LazyVideo from "../components/LazyVideo";
 import PageShell from "../components/PageShell";
 import styles from "./HomePage.module.css";
 
@@ -25,8 +26,8 @@ const aboutPoints = [
 ];
 
 const verticalVideos = [
-  { title: "Свадьба", src: mediaLinks.reelsVideoUrl },
   { title: "Корпоратив", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D0%9F%D1%80%D0%BE%D0%BC%D0%BE%20%D1%81%D1%82%D0%B8%D0%BB%D1%8F%D0%B3%D0%B8.mp4" },
+  { title: "Свадьба", src: mediaLinks.reelsVideoUrl },
   { title: "Юбилей", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D1%80%D0%B8%D0%BB%D1%81%20%D1%8E%D0%B1%D0%B8%D0%BB%D0%B5%D0%B9.mp4" },
 ];
 
@@ -175,7 +176,7 @@ export default function HomePage() {
           <div className={styles.verticalVideos}>
             {verticalVideos.map((item) => (
               <article key={item.title} className={styles.videoCard}>
-                <video className={styles.verticalVideo} src={item.src} autoPlay muted loop playsInline controls preload="metadata" />
+                <LazyVideo className={styles.verticalVideo} src={item.src} label={item.title} />
               </article>
             ))}
           </div>
@@ -190,7 +191,7 @@ export default function HomePage() {
           <div className={styles.showreelGrid}>
             {showreels.map((item) => (
               <article key={item.title} className={styles.videoWideCard}>
-                <video className={styles.wideVideo} src={item.src} autoPlay muted loop playsInline controls preload="metadata" />
+                <LazyVideo className={styles.wideVideo} src={item.src} label={item.title} />
               </article>
             ))}
           </div>

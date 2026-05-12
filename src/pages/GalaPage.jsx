@@ -1,5 +1,6 @@
 ﻿import CTASection from "../components/CTASection";
 import { mediaLinks } from "../data/mediaLinks";
+import LazyVideo from "../components/LazyVideo";
 import PageShell from "../components/PageShell";
 import SectionTitle from "../components/SectionTitle";
 import styles from "./GalaPage.module.css";
@@ -20,15 +21,10 @@ export default function GalaPage() {
               </p>
             </div>
             <div className={styles.stageCard}>
-              <video
+              <LazyVideo
                 className={styles.sampleVideo}
                 src={mediaLinks.reelsVideoUrl}
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
-                preload="metadata"
+                label="Гала-видео"
               />
             </div>
           </div>

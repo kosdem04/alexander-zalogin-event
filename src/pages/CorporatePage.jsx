@@ -1,5 +1,6 @@
 ﻿import CTASection from "../components/CTASection";
 import { mediaLinks } from "../data/mediaLinks";
+import LazyVideo from "../components/LazyVideo";
 import PageShell from "../components/PageShell";
 import SectionTitle from "../components/SectionTitle";
 import styles from "./CorporatePage.module.css";
@@ -36,15 +37,10 @@ export default function CorporatePage() {
 
             <div className={styles.heroVisual}>
               <div className={styles.visualImage}>
-                <video
+                <LazyVideo
                   className={styles.sampleVideo}
                   src={mediaLinks.reelsVideoUrl}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
-                  preload="metadata"
+                  label="Корпоративы"
                 />
               </div>
               <div className={styles.floatingNote}>Для компаний, которым важны статус, темп и сильная работа с аудиторией.</div>
@@ -93,15 +89,10 @@ export default function CorporatePage() {
         <div className={styles.container}>
           <div className={styles.caseLayout}>
             <div className={styles.caseVideo}>
-              <video
+              <LazyVideo
                 className={styles.sampleVideo}
                 src={mediaLinks.reelsVideoUrl}
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
-                preload="metadata"
+                label="Кейсы и ролики"
               />
             </div>
             <div className={styles.caseSidebar}>
