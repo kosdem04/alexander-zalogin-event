@@ -67,10 +67,7 @@ export default function LazyVideo({ src, className = "", label = "Видео", a
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsNearViewport(true);
-          observer.disconnect();
-        }
+        setIsNearViewport(entry.isIntersecting);
       },
       {
         rootMargin: isMobile ? MOBILE_ROOT_MARGIN : DESKTOP_ROOT_MARGIN,
@@ -112,6 +109,22 @@ export default function LazyVideo({ src, className = "", label = "Видео", a
       releaseOnce();
     };
   }, [isMobile, isNearViewport]);
+
+  useEffect(() => {
+    if (!isMobile || isNearViewport || !shouldLoad) return;
+
+    const video = videoRef.current;
+    pendingPlayRef.current = false;
+
+    if (video) {
+      video.pause();
+      video.removeAttribute("src");
+      video.load();
+    }
+
+    setShouldLoad(false);
+    setHasStarted(false);
+  }, [isMobile, isNearViewport, shouldLoad]);
 
   useEffect(() => {
     const video = videoRef.current;
