@@ -34,7 +34,7 @@ export default function LazyVideo({ src, className = "", label = "Видео", a
         }
       },
       {
-        rootMargin: isMobile ? "120px 0px" : "420px 0px",
+        rootMargin: isMobile ? "420px 0px" : "420px 0px",
         threshold: 0.01,
       },
     );
@@ -47,6 +47,8 @@ export default function LazyVideo({ src, className = "", label = "Видео", a
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !shouldLoad) return;
+
+    video.load();
 
     if (pendingPlayRef.current) {
       pendingPlayRef.current = false;
@@ -84,7 +86,7 @@ export default function LazyVideo({ src, className = "", label = "Видео", a
         loop={loop}
         playsInline
         controls={shouldLoad}
-        preload={isMobile ? "none" : "metadata"}
+        preload="metadata"
         aria-label={label}
         onPlay={() => setHasStarted(true)}
       />
