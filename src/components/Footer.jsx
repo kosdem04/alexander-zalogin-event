@@ -10,6 +10,7 @@ export default function Footer() {
           <p>Свадьбы, корпоративы, юбилеи, выпускные, статусные вечера и масштабные события.</p>
         </div>
         <div className={styles.contacts}>
+          <span className={styles.contactsTitle}>ТЫК ↓</span>
           <a href={contactLinks.phoneHref}>{contactLinks.phoneDisplay}</a>
           <a href={contactLinks.telegramHref} target="_blank" rel="noreferrer">
             Telegram: {contactLinks.telegramHandle}
@@ -22,4 +23,3 @@ export default function Footer() {
     </footer>
   );
 }
-

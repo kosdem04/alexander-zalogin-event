@@ -27,7 +27,7 @@ const aboutPoints = [
 
 const verticalVideos = [
   { title: "Корпоратив", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D0%9F%D1%80%D0%BE%D0%BC%D0%BE%20%D1%81%D1%82%D0%B8%D0%BB%D1%8F%D0%B3%D0%B8.mp4" },
-  { title: "Свадьба", src: mediaLinks.reelsVideoUrl },
+  { title: "Свадьба", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D0%9A%D0%B2%D0%B0%D0%B4%D1%80%D0%BE%D0%B1%D1%83%D0%BC.mp4" },
   { title: "Юбилей", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D1%80%D0%B8%D0%BB%D1%81%20%D1%8E%D0%B1%D0%B8%D0%BB%D0%B5%D0%B9.mp4" },
 ];
 
@@ -38,8 +38,8 @@ const showreels = [
 
 const photos = [
   { src: "/wedding-main.jpg", alt: "Свадебный вечер", className: "center" },
-  { src: "/%D1%84%D0%BE%D1%82%D0%BE1.jpg", alt: "Фото с мероприятия 1", className: "left" },
-  { src: "/%D1%84%D0%BE%D1%82%D0%BE2.jpg", alt: "Фото с мероприятия 2", className: "right" },
+  { src: "/%D1%84%D0%BE%D1%82%D0%BE1-2.jpg", alt: "Фото с мероприятия 1", className: "left" },
+  { src: "/%D1%84%D0%BE%D1%82%D0%BE2-2.jpg", alt: "Фото с мероприятия 2", className: "right" },
   { src: "/%D1%84%D0%BE%D1%82%D0%BE3.jpg", alt: "Фото с мероприятия 3", className: "top" },
   { src: "/%D1%84%D0%BE%D1%82%D0%BE4.jpg", alt: "Фото с мероприятия 4", className: "center" },
   { src: "/%D1%84%D0%BE%D1%82%D0%BE5.jpg", alt: "Фото с мероприятия 5", className: "left" },

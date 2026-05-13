@@ -26,7 +26,20 @@
 .contacts {
   display: grid;
   gap: 10px;
-  text-align: right;
+  justify-items: center;
+  text-align: center;
+}
+
+.contactsTitle {
+  color: var(--text);
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: clamp(19px, 2vw, 25px);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: 0;
+  opacity: 0.92;
+  transform: rotate(-4deg);
 }
 
 .contacts a:hover {
@@ -39,6 +52,7 @@
   }
 
   .contacts {
-    text-align: left;
+    justify-items: center;
+    text-align: center;
   }
 }
