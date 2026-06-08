@@ -26,9 +26,9 @@ const aboutPoints = [
 ];
 
 const verticalVideos = [
+  { title: "Юбилей", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D0%9C%D0%B0%D1%8F%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9.mp4" },
   { title: "Корпоратив", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D0%9F%D1%80%D0%BE%D0%BC%D0%BE%20%D1%81%D1%82%D0%B8%D0%BB%D1%8F%D0%B3%D0%B8.mp4" },
   { title: "Свадьба", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D0%9A%D0%B2%D0%B0%D0%B4%D1%80%D0%BE%D0%B1%D1%83%D0%BC.mp4" },
-  { title: "Юбилей", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D1%80%D0%B8%D0%BB%D1%81%20%D1%8E%D0%B1%D0%B8%D0%BB%D0%B5%D0%B9.mp4" },
 ];
 
 const showreels = [
@@ -39,14 +39,17 @@ const showreels = [
 const photos = [
   { src: "/wedding-main.jpg", alt: "Свадебный вечер", className: "center" },
   { src: "/%D1%84%D0%BE%D1%82%D0%BE1-2.jpg", alt: "Фото с мероприятия 1", className: "left" },
-  { src: "/%D1%84%D0%BE%D1%82%D0%BE2-2.jpg", alt: "Фото с мероприятия 2", className: "right" },
-  { src: "/%D1%84%D0%BE%D1%82%D0%BE3.jpg", alt: "Фото с мероприятия 3", className: "top" },
-  { src: "/%D1%84%D0%BE%D1%82%D0%BE4.jpg", alt: "Фото с мероприятия 4", className: "center" },
   { src: "/%D1%84%D0%BE%D1%82%D0%BE5.jpg", alt: "Фото с мероприятия 5", className: "left" },
+  { src: "/10.jpg", alt: "Фото с мероприятия 10", className: "center" },
   { src: "/%D1%84%D0%BE%D1%82%D0%BE%206.jpg", alt: "Фото с мероприятия 6", className: "right" },
+  { src: "/%D1%84%D0%BE%D1%82%D0%BE3.jpg", alt: "Фото с мероприятия 3", className: "top" },
+  { src: "/11.jpg", alt: "Фото с мероприятия 11", className: "center" },
+  { src: "/%D1%84%D0%BE%D1%82%D0%BE4.jpg", alt: "Фото с мероприятия 4", className: "center" },
+  { src: "/%D1%84%D0%BE%D1%82%D0%BE2-2.jpg", alt: "Фото с мероприятия 2", className: "right" },
+  { src: "/12.jpg", alt: "Фото с мероприятия 12", className: "center" },
   { src: "/%D1%84%D0%BE%D1%82%D0%BE7.jpg", alt: "Фото с мероприятия 7", className: "top" },
-  { src: "/%D1%84%D0%BE%D1%82%D0%BE8.jpg", alt: "Фото с мероприятия 8", className: "center" },
   { src: "/%D1%84%D0%BE%D1%82%D0%BE9.jpg", alt: "Фото с мероприятия 9", className: "right" },
+  { src: "/%D1%84%D0%BE%D1%82%D0%BE8.jpg", alt: "Фото с мероприятия 8", className: "center" },
 ];
 
 const results = [
@@ -71,7 +74,7 @@ const reviewPhotos = [
 export default function HomePage() {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
   const [activeReviewIndex, setActiveReviewIndex] = useState(0);
-  const visiblePhotos = showAllPhotos ? photos : photos.slice(0, 5);
+  const visiblePhotos = showAllPhotos ? photos : photos.slice(0, 6);
   const photoCardRefs = useRef([]);
   const [photoSpans, setPhotoSpans] = useState({});
 
@@ -204,7 +207,7 @@ export default function HomePage() {
             <p>Фото с мероприятий</p>
             <h3>Живые эмоции гостей и атмосфера вечера</h3>
           </div>
-          <div className={styles.photoGrid}>
+          <div className={`${styles.photoGrid} ${!showAllPhotos ? styles.photoGridCollapsed : ""}`}>
             {visiblePhotos.map((photo, index) => (
               <figure
                 key={`${photo.alt}-${index}`}
@@ -212,7 +215,7 @@ export default function HomePage() {
                 ref={(node) => {
                   photoCardRefs.current[index] = node;
                 }}
-                style={photoSpans[index] ? { gridRowEnd: `span ${photoSpans[index]}` } : undefined}
+                style={showAllPhotos && photoSpans[index] ? { gridRowEnd: `span ${photoSpans[index]}` } : undefined}
               >
                 <img
                   src={photo.src}
@@ -224,7 +227,7 @@ export default function HomePage() {
               </figure>
             ))}
           </div>
-          {!showAllPhotos && photos.length > 5 ? (
+          {!showAllPhotos && photos.length > 6 ? (
             <button type="button" className={styles.showMoreButton} onClick={() => setShowAllPhotos(true)}>
               Показать еще
             </button>

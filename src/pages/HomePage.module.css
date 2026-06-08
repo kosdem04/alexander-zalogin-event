@@ -601,6 +601,19 @@
   .photoGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .photoGridCollapsed {
+    grid-auto-rows: auto;
+  }
+
+  .photoGridCollapsed .photoCard {
+    aspect-ratio: 4 / 3;
+  }
+
+  .photoGridCollapsed .galleryPhoto {
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 @media (min-width: 1120px) {
