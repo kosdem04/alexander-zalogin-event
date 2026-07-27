@@ -30,6 +30,7 @@ const verticalVideos = [
   { title: "Корпоратив", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D0%9F%D1%80%D0%BE%D0%BC%D0%BE%20%D1%81%D1%82%D0%B8%D0%BB%D1%8F%D0%B3%D0%B8.mp4" },
   { title: "Свадьба", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D0%9A%D0%B2%D0%B0%D0%B4%D1%80%D0%BE%D0%B1%D1%83%D0%BC.mp4" },
   { title: "Выпускной 2026", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D0%B2%D1%8B%D0%BF%D1%83%D1%81%D0%BA%D0%BD%D0%BE%D0%B9%202026.mp4" },
+  { title: "Свадьба 27.07.2026", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D1%81%D0%B2%D0%B0%D0%B4%D1%8C%D0%B1%D0%B0%2027-07-2026.mp4" },
 ];
 
 const showreels = [
@@ -39,6 +40,8 @@ const showreels = [
 
 const photos = [
   { src: "/wedding-main.jpg", alt: "Свадебный вечер", className: "center" },
+  { src: "/event-photo-13.png", alt: "Свадебное фото с гостями на прогулке", className: "center" },
+  { src: "/event-photo-14.png", alt: "Гости поднимают бокалы на мероприятии", className: "center" },
   { src: "/%D1%84%D0%BE%D1%82%D0%BE1-2.jpg", alt: "Фото с мероприятия 1", className: "left" },
   { src: "/%D1%84%D0%BE%D1%82%D0%BE5.jpg", alt: "Фото с мероприятия 5", className: "left" },
   { src: "/10.jpg", alt: "Фото с мероприятия 10", className: "center" },
@@ -74,7 +77,12 @@ const reviewPhotos = [
 
 export default function HomePage() {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
+  const [showAllVerticalVideos, setShowAllVerticalVideos] = useState(false);
+  const [activeVideoIndex, setActiveVideoIndex] = useState(0);
   const [activeReviewIndex, setActiveReviewIndex] = useState(0);
+  const visibleVerticalVideos = showAllVerticalVideos ? verticalVideos : verticalVideos.slice(0, 4);
+  const maxVideoIndex = Math.max(0, verticalVideos.length - 3);
+  const visibleDesktopVideos = verticalVideos.slice(activeVideoIndex, activeVideoIndex + 3);
   const visiblePhotos = showAllPhotos ? photos : photos.slice(0, 6);
   const photoCardRefs = useRef([]);
   const [photoSpans, setPhotoSpans] = useState({});
@@ -130,6 +138,14 @@ export default function HomePage() {
     setActiveReviewIndex((prev) => (prev === reviewPhotos.length - 1 ? 0 : prev + 1));
   };
 
+  const showPrevVideo = () => {
+    setActiveVideoIndex((prev) => (prev === 0 ? maxVideoIndex : prev - 1));
+  };
+
+  const showNextVideo = () => {
+    setActiveVideoIndex((prev) => (prev === maxVideoIndex ? 0 : prev + 1));
+  };
+
   return (
     <PageShell className={styles.page}>
       <section className={styles.hero}>
@@ -177,12 +193,49 @@ export default function HomePage() {
           <div className={styles.sectionHead}>
             <p>Reels / Shorts</p>
           </div>
-          <div className={styles.verticalVideos}>
-            {verticalVideos.map((item) => (
+          <div className={styles.verticalVideosMobile}>
+            {visibleVerticalVideos.map((item) => (
               <article key={item.title} className={styles.videoCard}>
                 <LazyVideo className={styles.verticalVideo} src={item.src} label={item.title} />
               </article>
             ))}
+          </div>
+          {!showAllVerticalVideos && verticalVideos.length > 4 ? (
+            <button type="button" className={`${styles.showMoreButton} ${styles.videoShowMoreButton}`} onClick={() => setShowAllVerticalVideos(true)}>
+              Показать еще
+            </button>
+          ) : null}
+          <div className={styles.verticalVideosCarousel}>
+            <div className={styles.videoCarouselStage}>
+              <button type="button" className={styles.reviewArrow} onClick={showPrevVideo} aria-label="Предыдущие Reels / Shorts">
+                <span aria-hidden="true">‹</span>
+              </button>
+              <div className={styles.videoCarouselViewport}>
+                <div className={styles.videoCarouselTrack}>
+                  {visibleDesktopVideos.map((item) => (
+                    <article key={`${item.title}-desktop`} className={styles.videoCard}>
+                      <LazyVideo className={styles.verticalVideo} src={item.src} label={item.title} />
+                    </article>
+                  ))}
+                </div>
+              </div>
+              <button type="button" className={styles.reviewArrow} onClick={showNextVideo} aria-label="Следующие Reels / Shorts">
+                <span aria-hidden="true">›</span>
+              </button>
+            </div>
+            <div className={styles.reviewsControls}>
+              <div className={styles.reviewsDots}>
+                {Array.from({ length: maxVideoIndex + 1 }).map((_, index) => (
+                  <button
+                    key={`video-dot-${index}`}
+                    type="button"
+                    className={`${styles.reviewDot} ${index === activeVideoIndex ? styles.reviewDotActive : ""}`}
+                    onClick={() => setActiveVideoIndex(index)}
+                    aria-label={`Показать Reels / Shorts ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

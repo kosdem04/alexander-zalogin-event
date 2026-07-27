@@ -233,9 +233,34 @@
   line-height: 1.5;
 }
 
-.verticalVideos,
+.verticalVideosMobile,
 .photoGrid {
   display: grid;
+  gap: 14px;
+}
+
+.verticalVideosCarousel {
+  display: none;
+}
+
+.videoShowMoreButton {
+  display: block;
+}
+
+.videoCarouselStage {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 10px;
+}
+
+.videoCarouselViewport {
+  overflow: hidden;
+}
+
+.videoCarouselTrack {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -594,7 +619,7 @@
     margin: 0 auto;
   }
 
-  .verticalVideos {
+  .verticalVideosMobile {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -617,8 +642,14 @@
 }
 
 @media (min-width: 1120px) {
-  .verticalVideos {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  .verticalVideosMobile,
+  .videoShowMoreButton {
+    display: none;
+  }
+
+  .verticalVideosCarousel {
+    display: grid;
+    gap: 12px;
   }
 
   .pointsGrid {
