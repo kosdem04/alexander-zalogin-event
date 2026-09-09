@@ -1,7 +1,6 @@
 ﻿import { useEffect, useRef, useState } from "react";
 
 import { contactLinks } from "../data/contactLinks";
-import { mediaLinks } from "../data/mediaLinks";
 import LazyVideo from "../components/LazyVideo";
 import PageShell from "../components/PageShell";
 import styles from "./HomePage.module.css";
@@ -9,11 +8,11 @@ import styles from "./HomePage.module.css";
 const aboutPoints = [
   {
     title: "Ведущий и актёр",
-    text: "В фильмографии 7 проектов, включая работы федерального проката.",
+    text: "В творчестве более 6 лет. Снимался в 7 фильмах, включая Всероссийское Кино",
   },
   {
     title: "Импровизация",
-    text: "Умею держать ситуацию: однажды провёл мероприятие во время пожарной тревоги на площадке.",
+    text: "Умею держать ситуацию: однажды спас мероприятие во время пожарной тревоги",
   },
   {
     title: "Подход",
@@ -26,31 +25,40 @@ const aboutPoints = [
 ];
 
 const verticalVideos = [
+  { title: "Визитка", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%20%D0%97%D0%B0%D0%BB%D0%BE%D0%B3%D0%B8%D0%BD%20%D0%92%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0.mp4" },
   { title: "Юбилей", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D0%9C%D0%B0%D1%8F%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9.mp4" },
+  { title: "Свадьба 09.09.2026", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/09-09-2026.mp4" },
   { title: "Корпоратив", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D0%9F%D1%80%D0%BE%D0%BC%D0%BE%20%D1%81%D1%82%D0%B8%D0%BB%D1%8F%D0%B3%D0%B8.mp4" },
-  { title: "Свадьба", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D0%9A%D0%B2%D0%B0%D0%B4%D1%80%D0%BE%D0%B1%D1%83%D0%BC.mp4" },
-  { title: "Выпускной 2026", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D0%B2%D1%8B%D0%BF%D1%83%D1%81%D0%BA%D0%BD%D0%BE%D0%B9%202026.mp4" },
   { title: "Свадьба 27.07.2026", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D1%81%D0%B2%D0%B0%D0%B4%D1%8C%D0%B1%D0%B0%2027-07-2026.mp4" },
 ];
 
 const showreels = [
   { title: "Шоурил 2026", src: "https://s3.twcstorage.ru/707f08c3-950c-4237-807b-4b7b9b3a486e/%D1%81%D0%B2%D0%B0%D0%B4%D0%B5%D0%B1%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%BE%D0%BC%D0%BE.mp4" },
-  { title: "Подборка мероприятий", src: mediaLinks.sampleVideoUrl },
 ];
 
 const photos = [
+  { src: "/gallery/live-events-01.jpg", alt: "Гости на свадебном мероприятии", className: "center" },
+  { src: "/gallery/live-events-02.jpg", alt: "Александр Залогин ведет мероприятие", className: "center" },
+  { src: "/gallery/live-events-03.jpg", alt: "Гостья участвует в интерактиве", className: "center" },
+  { src: "/gallery/live-events-04.jpg", alt: "Александр Залогин с молодоженами", className: "center" },
+  { src: "/gallery/live-events-05.jpg", alt: "Гости поднимают бокалы за столом", className: "center" },
+  { src: "/gallery/live-events-06.jpg", alt: "Интерактив с гостями на свадьбе", className: "center" },
+  { src: "/gallery/live-events-07.jpg", alt: "Александр проводит интерактив с гостьей", className: "center" },
+  { src: "/gallery/live-events-08.jpg", alt: "Веселый конкурс за праздничным столом", className: "center" },
+  { src: "/gallery/live-events-09.jpg", alt: "Гости аплодируют на мероприятии", className: "center" },
+  { src: "/gallery/live-events-10.jpg", alt: "Александр ведет конкурс с гостями", className: "center" },
+  { src: "/gallery/live-events-11.jpg", alt: "Тост гостей за праздничным столом", className: "center" },
+  { src: "/gallery/live-events-12.jpg", alt: "Невеста снимает момент на телефон", className: "center" },
+  { src: "/gallery/live-events-14.jpg", alt: "Александр поздравляет молодоженов", className: "center" },
+  { src: "/gallery/live-events-15.jpg", alt: "Гость снимает экран во время интерактива", className: "center" },
+  { src: "/gallery/live-events-16.jpg", alt: "Александр с микрофоном на мероприятии", className: "center" },
+  { src: "/gallery/live-events-17.jpg", alt: "Александр на сцене с участниками показа", className: "center" },
+  { src: "/gallery/live-events-18.jpg", alt: "Гости позируют на празднике", className: "center" },
+  { src: "/gallery/live-events-19.jpg", alt: "Экран с заданием во время интерактива", className: "center" },
   { src: "/wedding-main.jpg", alt: "Свадебный вечер", className: "center" },
   { src: "/event-photo-13.png", alt: "Свадебное фото с гостями на прогулке", className: "center" },
   { src: "/event-photo-14.png", alt: "Гости поднимают бокалы на мероприятии", className: "center" },
-  { src: "/%D1%84%D0%BE%D1%82%D0%BE1-2.jpg", alt: "Фото с мероприятия 1", className: "left" },
-  { src: "/%D1%84%D0%BE%D1%82%D0%BE5.jpg", alt: "Фото с мероприятия 5", className: "left" },
   { src: "/10.jpg", alt: "Фото с мероприятия 10", className: "center" },
-  { src: "/%D1%84%D0%BE%D1%82%D0%BE%206.jpg", alt: "Фото с мероприятия 6", className: "right" },
-  { src: "/%D1%84%D0%BE%D1%82%D0%BE3.jpg", alt: "Фото с мероприятия 3", className: "top" },
-  { src: "/11.jpg", alt: "Фото с мероприятия 11", className: "center" },
-  { src: "/%D1%84%D0%BE%D1%82%D0%BE4.jpg", alt: "Фото с мероприятия 4", className: "center" },
-  { src: "/%D1%84%D0%BE%D1%82%D0%BE2-2.jpg", alt: "Фото с мероприятия 2", className: "right" },
-  { src: "/12.jpg", alt: "Фото с мероприятия 12", className: "center" },
   { src: "/%D1%84%D0%BE%D1%82%D0%BE7.jpg", alt: "Фото с мероприятия 7", className: "top" },
   { src: "/%D1%84%D0%BE%D1%82%D0%BE9.jpg", alt: "Фото с мероприятия 9", className: "right" },
   { src: "/%D1%84%D0%BE%D1%82%D0%BE8.jpg", alt: "Фото с мероприятия 8", className: "center" },
@@ -67,6 +75,8 @@ const results = [
 const clients = ["Лента", "Магнит", "РТС-Тендер", "2ГИС", "Жилфонд", "Gabbiano"];
 
 const reviewPhotos = [
+  { src: "/feedbacks/review-olesya-2026-08-26.png", alt: "Отзыв Олеси о ведущем на свадьбу" },
+  { src: "/feedbacks/review-graduation-9-class.jpg", alt: "Отзыв о ведущем для выпускного 9 класса" },
   { src: "/feedbacks/%D0%B4%D0%B2%D0%B0%20%D0%B4%D0%B8%D0%B2%D0%B0%D0%BD%D0%B0.png", alt: "Отзыв с мероприятия: два дивана" },
   { src: "/feedbacks/%D0%BC%D0%B0%D1%84%D0%B8%D1%8F1.jpg", alt: "Отзыв с мероприятия: мафия 1" },
   { src: "/feedbacks/%D0%BC%D0%B0%D1%84%D0%B8%D1%8F2.jpg", alt: "Отзыв с мероприятия: мафия 2" },
@@ -82,6 +92,7 @@ export default function HomePage() {
   const [activeReviewIndex, setActiveReviewIndex] = useState(0);
   const visibleVerticalVideos = showAllVerticalVideos ? verticalVideos : verticalVideos.slice(0, 4);
   const maxVideoIndex = Math.max(0, verticalVideos.length - 3);
+  const showVideoCarouselControls = verticalVideos.length > 3;
   const visibleDesktopVideos = verticalVideos.slice(activeVideoIndex, activeVideoIndex + 3);
   const visiblePhotos = showAllPhotos ? photos : photos.slice(0, 6);
   const photoCardRefs = useRef([]);
@@ -161,10 +172,10 @@ export default function HomePage() {
             </div>
 
             <div className={styles.heroDetails}>
-              <h2>Ведущий мероприятий, где важны люди</h2>
-              <p className={styles.heroText}>Собираю вечер так, чтобы гостям было комфортно, а вам спокойно за результат.</p>
+              <h2>Ведущий мероприятий, киноактёр</h2>
+              <p className={styles.heroText}>Создаю неповторимые События, чтобы гостям было комфортно, а Вам спокойно за результат</p>
               <a className={styles.primaryButton} href="#lead">
-                Оставить заявку
+                Запросить свободную дату
               </a>
             </div>
           </div>
@@ -174,7 +185,7 @@ export default function HomePage() {
       <section className={styles.section}>
         <div className={styles.container}>
           <div className={styles.sectionHead}>
-            <h3>Обо мне</h3>
+            <h3>Немного обо мне ;)</h3>
             <p className={styles.aboutIntro}>Меня зовут Александр - я ведущий мероприятий «про людей».</p>
           </div>
           <div className={styles.pointsGrid}>
@@ -206,10 +217,12 @@ export default function HomePage() {
             </button>
           ) : null}
           <div className={styles.verticalVideosCarousel}>
-            <div className={styles.videoCarouselStage}>
-              <button type="button" className={styles.reviewArrow} onClick={showPrevVideo} aria-label="Предыдущие Reels / Shorts">
-                <span aria-hidden="true">‹</span>
-              </button>
+            <div className={`${styles.videoCarouselStage} ${!showVideoCarouselControls ? styles.videoCarouselStageSolo : ""}`}>
+              {showVideoCarouselControls ? (
+                <button type="button" className={styles.reviewArrow} onClick={showPrevVideo} aria-label="Предыдущие Reels / Shorts">
+                  <span aria-hidden="true">‹</span>
+                </button>
+              ) : null}
               <div className={styles.videoCarouselViewport}>
                 <div className={styles.videoCarouselTrack}>
                   {visibleDesktopVideos.map((item) => (
@@ -219,23 +232,27 @@ export default function HomePage() {
                   ))}
                 </div>
               </div>
-              <button type="button" className={styles.reviewArrow} onClick={showNextVideo} aria-label="Следующие Reels / Shorts">
-                <span aria-hidden="true">›</span>
-              </button>
+              {showVideoCarouselControls ? (
+                <button type="button" className={styles.reviewArrow} onClick={showNextVideo} aria-label="Следующие Reels / Shorts">
+                  <span aria-hidden="true">›</span>
+                </button>
+              ) : null}
             </div>
-            <div className={styles.reviewsControls}>
-              <div className={styles.reviewsDots}>
-                {Array.from({ length: maxVideoIndex + 1 }).map((_, index) => (
-                  <button
-                    key={`video-dot-${index}`}
-                    type="button"
-                    className={`${styles.reviewDot} ${index === activeVideoIndex ? styles.reviewDotActive : ""}`}
-                    onClick={() => setActiveVideoIndex(index)}
-                    aria-label={`Показать Reels / Shorts ${index + 1}`}
-                  />
-                ))}
+            {showVideoCarouselControls ? (
+              <div className={styles.reviewsControls}>
+                <div className={styles.reviewsDots}>
+                  {Array.from({ length: maxVideoIndex + 1 }).map((_, index) => (
+                    <button
+                      key={`video-dot-${index}`}
+                      type="button"
+                      className={`${styles.reviewDot} ${index === activeVideoIndex ? styles.reviewDotActive : ""}`}
+                      onClick={() => setActiveVideoIndex(index)}
+                      aria-label={`Показать Reels / Shorts ${index + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
+            ) : null}
           </div>
         </div>
       </section>

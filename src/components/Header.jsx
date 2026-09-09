@@ -11,7 +11,7 @@ export default function Header() {
         </NavLink>
 
         <a href="/#lead" className={styles.cta}>
-          Оставить заявку
+          Узнать свободную дату
         </a>
       </div>
     </header>
