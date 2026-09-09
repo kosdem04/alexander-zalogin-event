@@ -278,6 +278,10 @@
   grid-auto-flow: dense;
 }
 
+.photoGridCollapsed {
+  grid-auto-rows: auto;
+}
+
 .videoCard span,
 .videoWideCard span {
   display: block;
