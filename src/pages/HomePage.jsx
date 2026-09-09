@@ -168,7 +168,7 @@ export default function HomePage() {
             </div>
 
             <div className={styles.heroPhotoWrap}>
-              <img src="/main.jpg" alt="Александр Залогин" className={styles.heroPhoto} />
+              <img src="/alexander-zalogin-main-photo.jpg" alt="Александр Залогин" className={styles.heroPhoto} />
             </div>
 
             <div className={styles.heroDetails}>
