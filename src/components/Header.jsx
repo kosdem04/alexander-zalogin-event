@@ -11,7 +11,7 @@ export default function Header() {
         </NavLink>
 
         <a href="/#lead" className={styles.cta}>
-          Узнать свободную дату
+          Запросить дату
         </a>
       </div>
     </header>
