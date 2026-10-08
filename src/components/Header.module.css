@@ -3,7 +3,7 @@
   top: 0;
   z-index: 30;
   backdrop-filter: blur(20px);
-  background: rgba(255, 253, 246, 0.88);
+  background: rgba(248, 244, 236, 0.9);
   border-bottom: 1px solid var(--line);
 }
 
@@ -61,7 +61,7 @@
 
 .link:hover,
 .active {
-  background: rgba(255, 220, 134, 0.36);
+  background: rgba(154, 99, 46, 0.1);
   color: var(--text);
 }
 
@@ -70,18 +70,18 @@
   align-items: center;
   justify-content: center;
   justify-self: end;
-  border: 1px solid rgba(184, 134, 48, 0.18);
+  border: 1px solid rgba(103, 60, 26, 0.22);
   background: var(--button-gradient);
-  background-size: 250% 100%;
+  background-size: 180% 100%;
   font-size: 14px;
   font-weight: 800;
-  color: var(--text);
-  box-shadow: 0 10px 24px rgba(187, 139, 48, 0.16);
+  color: var(--white-soft);
+  box-shadow: 0 10px 24px rgba(76, 44, 18, 0.16);
   text-align: center;
-  animation: vanillaSheen 7s ease-in-out infinite;
+  animation: honeySheen 10s ease-in-out infinite;
 }
 
-@keyframes vanillaSheen {
+@keyframes honeySheen {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
@@ -92,7 +92,7 @@
 
 .cta:hover {
   transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(187, 139, 48, 0.24);
+  box-shadow: 0 14px 30px rgba(76, 44, 18, 0.22);
 }
 
 .burger {

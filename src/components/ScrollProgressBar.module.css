@@ -11,7 +11,7 @@
 .bar {
   width: 0;
   height: 100%;
-  background: linear-gradient(90deg, #c58e42, #ffdc86);
-  box-shadow: 0 0 10px rgba(197, 142, 66, 0.25);
+  background: linear-gradient(90deg, #754721, #b9813c);
+  box-shadow: 0 0 10px rgba(117, 71, 33, 0.2);
   transition: width 0.16s ease-out;
 }

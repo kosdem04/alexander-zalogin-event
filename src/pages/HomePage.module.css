@@ -1,8 +1,8 @@
 ﻿.page {
   background:
-    radial-gradient(circle at 87% 9%, rgba(255, 231, 163, 0.32), transparent 24%),
-    radial-gradient(circle at 8% 26%, rgba(255, 239, 194, 0.2), transparent 25%),
-    linear-gradient(180deg, #fffdf5 0%, #fffaf0 48%, #fffdf7 100%);
+    radial-gradient(circle at 87% 9%, rgba(193, 129, 53, 0.12), transparent 27%),
+    radial-gradient(circle at 3% 28%, rgba(188, 130, 62, 0.07), transparent 29%),
+    linear-gradient(180deg, #f8f4ec 0%, #f5efe5 48%, #f9f5ed 100%);
 }
 
 .container {
@@ -11,7 +11,32 @@
 }
 
 .hero {
+  position: relative;
+  overflow: hidden;
   padding: 38px 0 82px;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 1500px;
+  height: 760px;
+  border: 1px solid rgba(154, 99, 46, 0.12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::before {
+  top: 120px;
+  left: -1060px;
+  transform: rotate(-12deg);
+}
+
+.hero::after {
+  right: -850px;
+  bottom: -620px;
+  transform: rotate(12deg);
 }
 
 .section,
@@ -20,6 +45,8 @@
 }
 
 .heroGrid {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: 24px;
   grid-template-areas:
@@ -57,18 +84,7 @@
 .videoWideCard span,
 .calcCard p,
 .priceLabel {
-  background: var(--accent-gradient);
-  background-size: 240% 100%;
   color: var(--accent-strong);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: warmShimmer 8s ease-in-out infinite;
-}
-
-@keyframes warmShimmer {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
 }
 
 .heroName .eyebrow {
@@ -108,30 +124,30 @@
   border-radius: 999px;
   padding: 0 24px;
   background: var(--button-gradient);
-  background-size: 250% 100%;
-  color: var(--text);
+  background-size: 180% 100%;
+  color: var(--white-soft);
   font-weight: 900;
-  box-shadow: 0 10px 24px rgba(187, 139, 48, 0.16);
+  box-shadow: 0 12px 28px rgba(76, 44, 18, 0.18);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  animation: vanillaSheen 7s ease-in-out infinite;
+  animation: honeySheen 10s ease-in-out infinite;
 }
 
-@keyframes vanillaSheen {
+@keyframes honeySheen {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
 
 .primaryButton:hover {
   transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(187, 139, 48, 0.24);
+  box-shadow: 0 16px 32px rgba(76, 44, 18, 0.24);
 }
 
 .heroPhotoWrap {
   grid-area: photo;
-  border-radius: 26px;
+  border-radius: 28px;
   overflow: hidden;
   border: 1px solid var(--line);
-  box-shadow: var(--shadow);
+  box-shadow: 0 28px 70px rgba(57, 35, 18, 0.17);
 }
 
 .heroPhoto {
@@ -176,10 +192,15 @@
   gap: 14px;
   align-items: start;
   padding: 18px;
-  border-radius: 20px;
+  border-radius: 16px;
   background: var(--surface);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
+}
+
+.resultItem:last-child {
+  border-color: rgba(117, 71, 33, 0.3);
+  background: rgba(232, 210, 177, 0.42);
 }
 
 .resultItem span {
@@ -189,7 +210,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  border: 1px solid rgba(166, 116, 53, 0.32);
+  border: 1px solid rgba(154, 99, 46, 0.28);
   color: var(--accent-strong);
   font-weight: 800;
 }
@@ -210,7 +231,7 @@
 .photoCard,
 .finalGrid {
   padding: 18px;
-  border-radius: 20px;
+  border-radius: 18px;
   background: var(--surface);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
@@ -218,6 +239,7 @@
 
 .card {
   line-height: 1.45;
+  box-shadow: none;
 }
 
 .card h4 {
@@ -338,7 +360,7 @@
 }
 
 .showMoreButton:hover {
-  border-color: rgba(166, 116, 53, 0.45);
+  border-color: rgba(117, 71, 33, 0.46);
 }
 
 .top {
@@ -383,6 +405,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent-strong);
+  box-shadow: none;
 }
 
 .reviewCard {
@@ -454,7 +477,7 @@
 }
 
 .reviewArrow:hover {
-  border-color: rgba(166, 116, 53, 0.45);
+  border-color: rgba(117, 71, 33, 0.46);
 }
 
 .reviewArrow span {
@@ -475,7 +498,7 @@
   height: 10px;
   border: 0;
   border-radius: 999px;
-  background: rgba(166, 116, 53, 0.25);
+  background: rgba(117, 71, 33, 0.22);
   cursor: pointer;
 }
 
@@ -486,8 +509,8 @@
 .pricingCard {
   display: grid;
   gap: 18px;
-  background: linear-gradient(150deg, rgba(255, 229, 163, 0.6), rgba(255, 253, 246, 0.84));
-  border: 1px solid rgba(166, 116, 53, 0.22);
+  background: linear-gradient(150deg, rgba(232, 210, 177, 0.58), rgba(255, 251, 245, 0.88));
+  border: 1px solid rgba(117, 71, 33, 0.2);
 }
 
 .priceLabel {
@@ -517,17 +540,20 @@
   padding: 14px;
   border-radius: 14px;
   border: 1px solid var(--line);
-  background: rgba(255, 253, 246, 0.7);
+  background: rgba(255, 251, 245, 0.7);
 }
 
 .finalGrid {
   display: grid;
   gap: 20px;
   grid-template-columns: 1fr;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  box-shadow: none;
+  padding: 42px 24px;
+  border: 1px solid rgba(194, 139, 75, 0.24);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 80% 0%, rgba(167, 108, 51, 0.2), transparent 38%),
+    linear-gradient(135deg, #453020, #2d2018);
+  box-shadow: 0 24px 55px rgba(45, 32, 24, 0.18);
 }
 
 .finalStack {
@@ -537,19 +563,20 @@
 }
 
 .phoneLink {
-  color: var(--accent-strong);
+  color: #e8bd82;
   font-weight: 700;
   font-size: 14px;
   text-align: center;
 }
 
 .phoneLink:hover {
-  color: var(--accent);
+  color: #f4d9ad;
 }
 
 .finalTitle {
   text-align: center;
   font-size: clamp(14px, 3.2vw, 23px);
+  color: var(--white-soft);
 }
 
 .messengerIcons {
@@ -566,9 +593,9 @@
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-  border: 1px solid var(--line);
-  background: var(--surface-strong);
-  color: var(--text);
+  border: 1px solid rgba(232, 189, 130, 0.3);
+  background: rgba(255, 250, 241, 0.08);
+  color: var(--white-soft);
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.04em;
@@ -580,15 +607,15 @@
 }
 
 .telegramIcon {
-  border-color: rgba(166, 116, 53, 0.42);
+  border-color: rgba(232, 189, 130, 0.3);
 }
 
 .instagramIcon {
-  border-color: rgba(166, 116, 53, 0.42);
+  border-color: rgba(232, 189, 130, 0.3);
 }
 
 .maxIcon {
-  border-color: rgba(166, 116, 53, 0.42);
+  border-color: rgba(232, 189, 130, 0.3);
 }
 
 @media (min-width: 760px) {
@@ -686,6 +713,10 @@
 }
 
 @media (max-width: 759px) {
+  .finalGrid {
+    padding: 30px 18px;
+  }
+
   .reviewsStage {
     grid-template-columns: 38px minmax(0, 1fr) 38px;
     gap: 8px;
@@ -702,13 +733,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .eyebrow,
-  .sectionHead p:not(.aboutIntro),
-  .card h4,
-  .videoCard span,
-  .videoWideCard span,
-  .calcCard p,
-  .priceLabel,
   .primaryButton {
     animation: none;
   }

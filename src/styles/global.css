@@ -1,26 +1,25 @@
 :root {
   font-family: "Manrope", "Segoe UI", sans-serif;
-  color: #332a25;
-  background: #fffdf6;
+  color: #2d2018;
+  background: #f7f2e9;
   text-rendering: optimizeLegibility;
   font-synthesis: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --container: 1280px;
-  --bg: #fffdf6;
-  --bg-soft: #fff9eb;
-  --surface: rgba(255, 253, 246, 0.76);
-  --surface-strong: #fffdf6;
-  --line: rgba(99, 72, 43, 0.14);
-  --text: #332a25;
-  --muted: #756d64;
-  --accent: #a67435;
-  --accent-strong: #8d612d;
-  --accent-glow: #ffdc86;
-  --accent-gradient: linear-gradient(100deg, #805724, #9b6b2c, #805724, #95672e, #805724);
-  --button-gradient: linear-gradient(105deg, #ffe39a 0%, #fff2b6 24%, #ffdc83 48%, #fff0ad 72%, #ffe39a 100%);
-  --white-soft: #fffdf6;
-  --shadow: 0 18px 48px rgba(121, 88, 37, 0.1);
+  --bg: #f7f2e9;
+  --bg-soft: #efe4d4;
+  --surface: rgba(255, 251, 245, 0.82);
+  --surface-strong: #fffbf5;
+  --line: rgba(96, 62, 36, 0.15);
+  --text: #2d2018;
+  --muted: #6f6257;
+  --accent: #9a632e;
+  --accent-strong: #754721;
+  --accent-glow: #b9813c;
+  --button-gradient: linear-gradient(110deg, #754721 0%, #955b2b 32%, #9a632e 50%, #955b2b 68%, #754721 100%);
+  --white-soft: #fffaf1;
+  --shadow: 0 14px 36px rgba(60, 37, 18, 0.07);
 }
 
 * {
@@ -36,9 +35,9 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(255, 234, 177, 0.24), transparent 26%),
-    radial-gradient(circle at top right, rgba(255, 233, 171, 0.22), transparent 24%),
-    linear-gradient(180deg, #fffdf6 0%, #fffaf0 52%, #fffdf7 100%);
+    radial-gradient(circle at top left, rgba(199, 142, 69, 0.09), transparent 30%),
+    radial-gradient(circle at top right, rgba(187, 122, 49, 0.07), transparent 25%),
+    linear-gradient(180deg, #f8f4ec 0%, #f5efe5 52%, #f9f5ed 100%);
 }
 
 a {
