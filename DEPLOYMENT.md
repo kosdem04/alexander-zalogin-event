@@ -11,7 +11,7 @@
 docker compose up -d --build
 ```
 
-Сайт будет доступен на `http://localhost:8080`.
+Сайт будет доступен на `http://localhost:8081`.
 
 ## Остановка
 

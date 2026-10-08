@@ -3,8 +3,8 @@
   top: 0;
   z-index: 30;
   backdrop-filter: blur(20px);
-  background: rgba(8, 11, 17, 0.8);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 253, 246, 0.88);
+  border-bottom: 1px solid var(--line);
 }
 
 .inner {
@@ -33,11 +33,11 @@
   bottom: -6px;
   width: 34px;
   height: 2px;
-  background: linear-gradient(90deg, var(--accent-glow), transparent);
+  background: linear-gradient(90deg, var(--accent), transparent);
 }
 
 .logo span {
-  color: var(--accent-glow);
+  color: var(--accent);
 }
 
 .nav {
@@ -61,8 +61,8 @@
 
 .link:hover,
 .active {
-  background: rgba(44, 140, 255, 0.12);
-  color: var(--white-soft);
+  background: rgba(255, 220, 134, 0.36);
+  color: var(--text);
 }
 
 .cta {
@@ -70,18 +70,29 @@
   align-items: center;
   justify-content: center;
   justify-self: end;
-  border: 1px solid rgba(44, 140, 255, 0.3);
-  background: linear-gradient(90deg, rgba(10, 37, 64, 0.9), rgba(28, 93, 153, 0.72));
+  border: 1px solid rgba(184, 134, 48, 0.18);
+  background: var(--button-gradient);
+  background-size: 250% 100%;
   font-size: 14px;
   font-weight: 800;
-  color: #fff;
-  box-shadow: 0 10px 30px rgba(28, 93, 153, 0.24);
+  color: var(--text);
+  box-shadow: 0 10px 24px rgba(187, 139, 48, 0.16);
   text-align: center;
+  animation: vanillaSheen 7s ease-in-out infinite;
+}
+
+@keyframes vanillaSheen {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta { animation: none; }
 }
 
 .cta:hover {
   transform: translateY(-1px);
-  box-shadow: 0 16px 34px rgba(44, 140, 255, 0.28);
+  box-shadow: 0 14px 28px rgba(187, 139, 48, 0.24);
 }
 
 .burger {
@@ -90,9 +101,9 @@
   width: 48px;
   height: 48px;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--line);
   border-radius: 14px;
-  background: rgba(8, 11, 17, 0.68);
+  background: var(--surface-strong);
 }
 
 .burger span {
@@ -100,7 +111,7 @@
   width: 18px;
   height: 2px;
   margin: 4px auto;
-  background: #fff;
+  background: var(--text);
   border-radius: 999px;
 }
 
